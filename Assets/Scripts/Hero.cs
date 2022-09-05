@@ -11,10 +11,8 @@ public class Hero : MonoBehaviour
     {
         if (_direction != Vector2.zero)
         {
-            Vector2 delta = _direction * _speed * Time.deltaTime;
-            float posX = transform.position.x + delta.x;
-            float posY = transform.position.y + delta.y;
-            transform.position = new Vector3(posX, posY, transform.position.z);
+            Vector3 delta = _direction * _speed * Time.deltaTime;
+            transform.position = transform.position + delta;
         }
     }
 
