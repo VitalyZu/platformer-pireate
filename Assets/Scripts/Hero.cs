@@ -16,7 +16,7 @@ public class Hero : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.velocity = new Vector2(_direction.x, _rigidbody.velocity.y);
+        _rigidbody.velocity = new Vector2(_direction.x * _speed, _rigidbody.velocity.y);
     }
 
     public void SetDirection(Vector2 direction)
