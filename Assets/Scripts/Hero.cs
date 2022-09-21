@@ -13,6 +13,9 @@ public class Hero : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Vector2 _direction;
 
+    private int _coinsAmount = 0;
+    private int _coinsValue = 0;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -51,5 +54,12 @@ public class Hero : MonoBehaviour
     public bool IsGround() 
     {
         return _layerCheck.isTouchingLayer;
+    }
+
+    public void setCoins(int coins)
+    {
+        _coinsValue++;
+        _coinsAmount += coins;
+        Debug.Log($"Coins: {_coinsValue} ({ _coinsAmount} $)");
     }
 }
