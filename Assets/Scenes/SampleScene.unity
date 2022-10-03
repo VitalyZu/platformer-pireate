@@ -471,16 +471,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cdf1c63105e9944a83cbaa72233e46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startName: Default
   _frameRate: 10
   _loop: 1
-  _sprites:
-  - {fileID: -6018279857378552221, guid: bdee0d959f2e46340b08d3bfd3199a9c, type: 3}
-  - {fileID: -6505298659582443948, guid: bdee0d959f2e46340b08d3bfd3199a9c, type: 3}
-  - {fileID: -7718236803453008505, guid: bdee0d959f2e46340b08d3bfd3199a9c, type: 3}
-  - {fileID: -2749089684739404911, guid: bdee0d959f2e46340b08d3bfd3199a9c, type: 3}
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  _animationsClip:
+  - name: Default
+    loop: 1
+    sprites:
+    - {fileID: -6018279857378552221, guid: bdee0d959f2e46340b08d3bfd3199a9c, type: 3}
+    - {fileID: -6505298659582443948, guid: bdee0d959f2e46340b08d3bfd3199a9c, type: 3}
+    - {fileID: -7718236803453008505, guid: bdee0d959f2e46340b08d3bfd3199a9c, type: 3}
+    - {fileID: -2749089684739404911, guid: bdee0d959f2e46340b08d3bfd3199a9c, type: 3}
+    allowNext: 1
+  - name: First
+    loop: 1
+    sprites:
+    - {fileID: -5528557573366522457, guid: fe56148d93690b248bfd0fd2bf24d096, type: 3}
+    - {fileID: 8506211366736525064, guid: fe56148d93690b248bfd0fd2bf24d096, type: 3}
+    - {fileID: 759440405009013545, guid: fe56148d93690b248bfd0fd2bf24d096, type: 3}
+    - {fileID: 3538689430123128980, guid: fe56148d93690b248bfd0fd2bf24d096, type: 3}
+    allowNext: 1
 --- !u!1 &332582469
 GameObject:
   m_ObjectHideFlags: 0
