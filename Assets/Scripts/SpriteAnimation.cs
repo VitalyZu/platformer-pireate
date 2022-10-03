@@ -9,7 +9,6 @@ public class SpriteAnimation : MonoBehaviour
 {
     [SerializeField] private string _startName;
     [SerializeField] private int _frameRate;
-    [SerializeField] private bool _loop;
     [SerializeField] private UnityEvent _onComplete;
     [SerializeField] private AnimationClip[] _animationsClip;
 
