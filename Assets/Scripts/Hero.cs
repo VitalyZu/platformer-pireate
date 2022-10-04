@@ -19,6 +19,9 @@ public class Hero : MonoBehaviour
     private Animator _animator;
     private Vector2 _direction;
 
+    private bool _isGrounded;
+    private bool _allowDoubleJump;
+
     private int _coinsAmount = 0;
     private int _coinsValue = 0;
 
@@ -29,30 +32,63 @@ public class Hero : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    private void Update()
+    {
+        _isGrounded = IsGround();
+    }
+
     private void FixedUpdate()
     {
-        _rigidbody.velocity = new Vector2(_direction.x * _speed, _rigidbody.velocity.y);
+        float xVelocity = _direction.x * _speed;
+        float yVelocity = CalculateYVelocity();
 
-        bool isJumping = _direction.y > 0;
-        bool isGround = IsGround();
+        _rigidbody.velocity = new Vector2(xVelocity, yVelocity);
 
-        if (isJumping)
-        {
-            if (isGround)
-            {
-                _rigidbody.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse);
-            }
-
-        }
-        else if (_rigidbody.velocity.y > 0)
-        {
-            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y * .5f);
-        }
-        _animator.SetBool(isGroundKey, isGround);
+        
+        _animator.SetBool(isGroundKey, _isGrounded);
         _animator.SetFloat(verticalVelocityKey, _rigidbody.velocity.y);
         _animator.SetBool(isRunningKey, _direction.x != 0);
 
         SetSpriteDirection();
+    }
+
+    private float CalculateYVelocity()
+    {
+        float yVelocity = _rigidbody.velocity.y;
+
+        bool isJumping = _direction.y > 0;
+
+        if (_isGrounded) _allowDoubleJump = true;
+
+        if (isJumping)
+        {
+            yVelocity = CalculateJumpVelocity(yVelocity);
+        }
+        else if (_rigidbody.velocity.y > 0)
+        {
+            yVelocity *= .5f;
+        }
+
+        return yVelocity;
+    }
+
+    private float CalculateJumpVelocity(float velocity)
+    {
+        bool isFalling = _rigidbody.velocity.y <= .001f;
+
+        if (!isFalling) return velocity;
+
+        if (_isGrounded)
+        {
+            velocity += _jumpSpeed;
+        }
+        else if (_allowDoubleJump) 
+        {
+            velocity += _jumpSpeed;
+            _allowDoubleJump = false;
+        }
+
+        return velocity;
     }
 
     private void SetSpriteDirection()
