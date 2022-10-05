@@ -7,5 +7,6 @@ public class SetCoinsComponent : MonoBehaviour
     public void SetHeroCoins(int coins)
     {
         GameObject.Find("Player").gameObject.GetComponent<Hero>().setCoins(coins);
+        gameObject.GetComponent<SpriteAnimation>().SetAnimationByName("Destroy");
     }
 }

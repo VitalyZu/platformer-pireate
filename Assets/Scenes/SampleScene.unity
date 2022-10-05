@@ -2619,6 +2619,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoldCoin
       objectReference: {fileID: 0}
+    - target: {fileID: 8136099914990085085, guid: df2b0c86b32ddb34797a9ff698a73eb2,
+        type: 3}
+      propertyPath: _animationsClip.Array.data[1].loop
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df2b0c86b32ddb34797a9ff698a73eb2, type: 3}
 --- !u!1001 &982283459

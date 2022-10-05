@@ -25,18 +25,8 @@ public class SpriteAnimation : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _secondsPerFrame = 1f / _frameRate;
         _nextFrameTime = Time.time + _secondsPerFrame;
-        
-        for (int i = 0; i < _animationsClip.Length; i++)
-        {
-            if (_animationsClip[i].name == _startName)
-            {
-                _clipIndex = i;
-            }
-        }
-        if (_clipIndex == null) {
-            if (_animationsClip.Length > 0) _clipIndex = 0;
-            else _isPlaying = false;
-        }
+
+        SetAnimationByName(_startName);
         
     }
 
@@ -80,6 +70,23 @@ public class SpriteAnimation : MonoBehaviour
         _spriteRenderer.sprite = _animationsClip[index].sprites[_currentSpriteIndex];
         _currentSpriteIndex++;
         _nextFrameTime += _secondsPerFrame;
+    }
+
+    public void SetAnimationByName(string name)
+    {
+        _currentSpriteIndex = 0;
+        for (int i = 0; i < _animationsClip.Length; i++)
+        {
+            if (_animationsClip[i].name == name)
+            {
+                _clipIndex = i;
+            }
+        }
+        if (_clipIndex == null)
+        {
+            if (_animationsClip.Length > 0) _clipIndex = 0;
+            else _isPlaying = false;
+        }
     }
 
     [Serializable]

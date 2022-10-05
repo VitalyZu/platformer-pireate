@@ -44,3 +44,6 @@ TagManager:
   - name: Creature
     uniqueID: 1757924611
     locked: 0
+  - name: Coins
+    uniqueID: 3755271281
+    locked: 0

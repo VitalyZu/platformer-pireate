@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -539696015
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 6582046967323461550, guid: 7155e71aa160bd84fa2855f28b924822,
     type: 3}
@@ -129,7 +129,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 3273665327549942391}
         m_MethodName: SetHeroCoins
         m_Mode: 3
@@ -168,18 +168,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startName: 
   _frameRate: 10
-  _loop: 1
   _onComplete:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7383767399155832561}
+        m_MethodName: DestroySelf
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _animationsClip:
-  - name: 
+  - name: Default
     loop: 1
     sprites:
     - {fileID: 6582046967323461550, guid: 7155e71aa160bd84fa2855f28b924822, type: 3}
     - {fileID: 1942777921290549423, guid: 7155e71aa160bd84fa2855f28b924822, type: 3}
     - {fileID: 8793606821965667882, guid: 7155e71aa160bd84fa2855f28b924822, type: 3}
     - {fileID: 3444832735345940322, guid: 7155e71aa160bd84fa2855f28b924822, type: 3}
+    allowNext: 0
+  - name: Destroy
+    loop: 0
+    sprites:
+    - {fileID: -4986890610287934012, guid: 7155e71aa160bd84fa2855f28b924822, type: 3}
+    - {fileID: 6143208460787649835, guid: 7155e71aa160bd84fa2855f28b924822, type: 3}
+    - {fileID: 7609282858266732271, guid: 7155e71aa160bd84fa2855f28b924822, type: 3}
+    - {fileID: -6288512792030432889, guid: 7155e71aa160bd84fa2855f28b924822, type: 3}
     allowNext: 0
 --- !u!114 &3273665327549942391
 MonoBehaviour:

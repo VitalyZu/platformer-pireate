@@ -79,12 +79,12 @@ public class Hero : MonoBehaviour
         if (!isFalling) return velocity;
 
         if (_isGrounded)
-        {
+        {       
             velocity += _jumpSpeed;
         }
         else if (_allowDoubleJump) 
         {
-            velocity += _jumpSpeed;
+            velocity = _jumpSpeed;
             _allowDoubleJump = false;
         }
 
