@@ -8,6 +8,10 @@ public class Hero : MonoBehaviour
     [SerializeField] private float _jumpSpeed;
     [SerializeField] private float _damageJumpSpeed;
     [SerializeField] private LayerMask _groundMask;
+    
+    [SerializeField] private float _interactRadius;
+    [SerializeField] private LayerMask _interactMask;
+    private Collider2D[] _interactResult = new Collider2D[1];
 
     [SerializeField] private LayerCheck _layerCheck;
 
@@ -118,6 +122,19 @@ public class Hero : MonoBehaviour
     public void SaySomething()
     {
         Debug.Log("Say something");
+    }
+
+    public void Interact()
+    {
+        int hit = Physics2D.OverlapCircleNonAlloc(transform.position, _interactRadius, _interactResult, _interactMask);
+        for (int i = 0; i < hit; i++)
+        {
+            InteractableComponent interactComponent = _interactResult[i].GetComponent<InteractableComponent>();
+            if (interactComponent != null)
+            {
+                interactComponent.Interact();
+            }
+        }
     }
 
     public bool IsGround() 
