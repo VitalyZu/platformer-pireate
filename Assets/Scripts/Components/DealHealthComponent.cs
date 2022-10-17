@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageComponent : MonoBehaviour
+public class DealHealthComponent : MonoBehaviour
 {
-    [SerializeField] private int _damage;
+    [SerializeField] private int _dealHealth;
 
-    public void DealDamage(GameObject target)
+    public void ApplyHealth(GameObject target)
     {
         HealthComponent healthComponent = target.GetComponent<HealthComponent>();
         if (healthComponent != null)
         {
-            healthComponent.ApplyDamage(_damage);
+            healthComponent.DealHealth(_dealHealth);
         }
     }
 }
