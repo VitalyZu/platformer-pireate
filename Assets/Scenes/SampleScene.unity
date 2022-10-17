@@ -1058,6 +1058,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthPotion
       objectReference: {fileID: 0}
+    - target: {fileID: 4861435665855327934, guid: 0572d2babb859a4448c946833547af2e,
+        type: 3}
+      propertyPath: _dealHealth
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0572d2babb859a4448c946833547af2e, type: 3}
 --- !u!4 &310050609 stripped

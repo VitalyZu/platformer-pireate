@@ -31,6 +31,8 @@ public class Hero : MonoBehaviour
     private int _coinsAmount = 0;
     private int _coinsValue = 0;
 
+    public bool isHit { get; private set; } 
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -111,8 +113,13 @@ public class Hero : MonoBehaviour
 
     public void GetDamage()
     {
-        _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
-        _animator.SetTrigger(hitKey);
+            isHit = true;
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
+            _animator.SetTrigger(hitKey);
+    }
+    public void EndHit()
+    {
+        isHit = false;
     }
     public void SetDirection(Vector2 direction)
     {

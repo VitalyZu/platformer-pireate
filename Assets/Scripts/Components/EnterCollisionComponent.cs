@@ -16,6 +16,14 @@ public class EnterCollisionComponent : MonoBehaviour
             _action?.Invoke(collision.gameObject);
         }
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag(_tag))
+        {
+            _action?.Invoke(collision.gameObject);
+        }
+    }
 }
 
 [Serializable]
