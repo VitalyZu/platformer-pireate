@@ -101,11 +101,11 @@ public class Hero : MonoBehaviour
 
     private void SetSpriteDirection()
     {
-        if (_direction.x > 0)
+        if (_direction.x < 0)
         {
             _sprite.flipX = true;
         }
-        else if (_direction.x < 0)
+        else if (_direction.x > 0)
         {
             _sprite.flipX = false;
         }
