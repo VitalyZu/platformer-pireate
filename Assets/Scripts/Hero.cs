@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
+    [SerializeField] private SpawnComponent _spawnComponent;
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpSpeed;
     [SerializeField] private float _damageJumpSpeed;
@@ -101,13 +102,13 @@ public class Hero : MonoBehaviour
 
     private void SetSpriteDirection()
     {
-        if (_direction.x < 0)
+        if (_direction.x > 0)
         {
-            _sprite.flipX = true;
+            transform.localScale = Vector3.one;
         }
-        else if (_direction.x > 0)
+        else if (_direction.x < 0)
         {
-            _sprite.flipX = false;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
     }
 
@@ -154,5 +155,10 @@ public class Hero : MonoBehaviour
         _coinsValue++;
         _coinsAmount += coins;
         Debug.Log($"Coins: {_coinsValue} ({ _coinsAmount} $)");
+    }
+
+    public void SpawnStepsDust()
+    {
+        _spawnComponent.Spawn();
     }
 }

@@ -3263,6 +3263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f97f31f6d056247ba60b1820a60094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawnComponent: {fileID: 730488809}
   _speed: 5
   _jumpSpeed: 16
   _damageJumpSpeed: 40
