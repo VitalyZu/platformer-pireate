@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hero : MonoBehaviour
 {
     [SerializeField] private SpawnComponent _spawnComponent;
+    [SerializeField] private ParticleSystem _hitParticle;
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpSpeed;
     [SerializeField] private float _damageJumpSpeed;
@@ -112,11 +113,31 @@ public class Hero : MonoBehaviour
         }
     }
 
+    private void SpawnCoins()
+    {
+        int coinsToDispose = Mathf.Min(_coinsValue, 5);
+        _coinsValue -= coinsToDispose;
+
+        ParticleSystem.Burst burst = _hitParticle.emission.GetBurst(0);
+
+        burst.count = coinsToDispose;
+
+        _hitParticle.emission.SetBurst(0, burst);
+
+        _hitParticle.gameObject.SetActive(true);
+        _hitParticle.Play();
+    }
+
     public void GetDamage()
     {
-            isHit = true;
-            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
-            _animator.SetTrigger(hitKey);
+        isHit = true;
+        _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
+        _animator.SetTrigger(hitKey);
+
+        if (_coinsAmount > 0)
+        {
+            SpawnCoins();
+        }        
     }
     public void EndHit()
     {
