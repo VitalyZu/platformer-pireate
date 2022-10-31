@@ -28,6 +28,7 @@ public class Hero : MonoBehaviour
     private Animator _animator;
     private Vector2 _direction;
 
+    private bool _isJumping;
     private bool _isGrounded;
     private bool _allowDoubleJump;
 
@@ -54,11 +55,13 @@ public class Hero : MonoBehaviour
         float yVelocity = CalculateYVelocity();
 
         _rigidbody.velocity = new Vector2(xVelocity, yVelocity);
-
-        
+ 
         _animator.SetBool(isGroundKey, _isGrounded);
-        Debug.Log(_rigidbody.velocity.y);
-        _animator.SetFloat(verticalVelocityKey, _rigidbody.velocity.y);
+
+        float velocityForAnimator = _rigidbody.velocity.y;
+        if (_rigidbody.velocity.y > 0 && !_isJumping) velocityForAnimator = 0;
+        _animator.SetFloat(verticalVelocityKey, velocityForAnimator);
+        
         _animator.SetBool(isRunningKey, _direction.x != 0);
 
         SetSpriteDirection();
@@ -70,13 +73,18 @@ public class Hero : MonoBehaviour
 
         bool isJumping = _direction.y > 0;
 
-        if (_isGrounded) _allowDoubleJump = true;
+        if (_isGrounded)
+        {
+            _isJumping = false;
+            _allowDoubleJump = true;
+        }
 
         if (isJumping)
         {
+            _isJumping = true;
             yVelocity = CalculateJumpVelocity(yVelocity);
         }
-        else if (_rigidbody.velocity.y > 0)
+        else if (_rigidbody.velocity.y > 0 && _isJumping)
         {
             yVelocity *= .5f;
         }
@@ -132,6 +140,7 @@ public class Hero : MonoBehaviour
 
     public void GetDamage()
     {
+        _isJumping = false;
         isHit = true;
         _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
         _animator.SetTrigger(hitKey);
