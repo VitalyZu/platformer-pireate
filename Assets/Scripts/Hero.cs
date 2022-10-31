@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
-    [SerializeField] private SpawnComponent _spawnComponent;
+    [SerializeField] private SpawnComponent _spawnStepsComponent;
+    [SerializeField] private SpawnComponent _spawnJumpComponent;
     [SerializeField] private ParticleSystem _hitParticle;
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpSpeed;
@@ -56,6 +57,7 @@ public class Hero : MonoBehaviour
 
         
         _animator.SetBool(isGroundKey, _isGrounded);
+        Debug.Log(_rigidbody.velocity.y);
         _animator.SetFloat(verticalVelocityKey, _rigidbody.velocity.y);
         _animator.SetBool(isRunningKey, _direction.x != 0);
 
@@ -180,6 +182,11 @@ public class Hero : MonoBehaviour
 
     public void SpawnStepsDust()
     {
-        _spawnComponent.Spawn();
+        _spawnStepsComponent.Spawn();
+    }
+
+    public void SpawnJumpDust()
+    {
+        _spawnJumpComponent.Spawn();
     }
 }
