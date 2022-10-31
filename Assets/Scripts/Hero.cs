@@ -39,6 +39,10 @@ public class Hero : MonoBehaviour
 
     private void Awake()
     {
+        //Debug.Log(gameObject.layer);
+        //Debug.Log(_groundMask.value);
+        //Debug.Log(1 << gameObject.layer);
+        //Debug.Log(_groundMask | (1 << gameObject.layer));
         _rigidbody = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
