@@ -63,7 +63,9 @@ public class Hero : MonoBehaviour
         _animator.SetBool(isGroundKey, _isGrounded);
 
         float velocityForAnimator = _rigidbody.velocity.y;
-        if (_rigidbody.velocity.y > 0 && !_isJumping) velocityForAnimator = 0;
+
+        if (_rigidbody.velocity.y > -0.9 && !_isJumping) velocityForAnimator = 0;
+        Debug.Log(velocityForAnimator);
         _animator.SetFloat(verticalVelocityKey, velocityForAnimator);
         
         _animator.SetBool(isRunningKey, _direction.x != 0);
