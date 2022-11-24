@@ -6,22 +6,28 @@ using UnityEngine.Events;
 
 public class EnterCollisionComponent : MonoBehaviour
 {
-    [SerializeField] private string _tag;
+    [SerializeField] private string[] _tag;
     [SerializeField] private EnterEvent _action;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag(_tag))
+        foreach (var item in _tag)
         {
-            _action?.Invoke(collision.gameObject);
-        }
+            if (collision.gameObject.CompareTag(item))
+            {
+                _action?.Invoke(collision.gameObject);
+            }
+        }       
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag(_tag))
+        foreach (var item in _tag)
         {
-            _action?.Invoke(collision.gameObject);
+            if (collision.gameObject.CompareTag(item))
+            {
+                _action?.Invoke(collision.gameObject);
+            }
         }
     }
 }
