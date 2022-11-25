@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5477666296884980884}
   - component: {fileID: 5477666296884980887}
   - component: {fileID: 5477666296884980886}
+  - component: {fileID: 1948723925322798630}
   m_Layer: 8
   m_Name: Barrel
   m_TagString: Props
@@ -91,7 +92,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477666296884980888}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -123,11 +124,46 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0
   m_GravityScale: 10
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 0
+--- !u!60 &1948723925322798630
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477666296884980888}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.0357143, y: 1.0625}
+    newSize: {x: 1.0357143, y: 1.0625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.2449657, y: 0.2949003}
+      - {x: -0.36311728, y: 0.11674574}
+      - {x: -0.35494724, y: -0.27333993}
+      - {x: -0.30791634, y: -0.39201364}
+      - {x: -0.24080743, y: -0.4535}
+      - {x: 0.2201444, y: -0.45183867}
+      - {x: 0.32919386, y: -0.2704574}
+      - {x: 0.3311889, y: 0.10438517}
+      - {x: 0.2815461, y: 0.21276006}
+      - {x: 0.22009577, y: 0.2992249}

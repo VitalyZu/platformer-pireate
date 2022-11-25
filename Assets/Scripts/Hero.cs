@@ -31,6 +31,7 @@ public class Hero : MonoBehaviour
     private bool _isJumping;
     private bool _isGrounded;
     private bool _allowDoubleJump;
+    private bool _allowFallingJump;
 
     private int _coinsAmount = 0;
     private int _coinsValue = 0;
@@ -65,7 +66,7 @@ public class Hero : MonoBehaviour
         float velocityForAnimator = _rigidbody.velocity.y;
 
         if (_rigidbody.velocity.y > -0.9 && !_isJumping) velocityForAnimator = 0;
-        Debug.Log(velocityForAnimator);
+
         _animator.SetFloat(verticalVelocityKey, velocityForAnimator);
         
         _animator.SetBool(isRunningKey, _direction.x != 0);
@@ -83,6 +84,7 @@ public class Hero : MonoBehaviour
         {
             _isJumping = false;
             _allowDoubleJump = true;
+            _allowFallingJump = true;
         }
 
         if (isJumping)
@@ -103,10 +105,13 @@ public class Hero : MonoBehaviour
         bool isFalling = _rigidbody.velocity.y <= .001f;
 
         if (!isFalling) return velocity;
+     
 
-        if (_isGrounded)
+        if (_isGrounded || _allowFallingJump)
         {       
             velocity += _jumpSpeed;
+            if(_allowFallingJump) velocity = _jumpSpeed;
+            _allowFallingJump = false;
         }
         else if (_allowDoubleJump) 
         {
