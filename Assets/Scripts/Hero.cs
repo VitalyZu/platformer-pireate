@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Hero : MonoBehaviour
 {
+    [SerializeField] private CinemachineVirtualCamera _cinemachineCamera;
+
     [SerializeField] private SpawnComponent _spawnStepsComponent;
     [SerializeField] private SpawnComponent _spawnJumpComponent;
     [SerializeField] private ParticleSystem _hitParticle;
@@ -36,6 +39,8 @@ public class Hero : MonoBehaviour
     private int _coinsAmount = 0;
     private int _coinsValue = 0;
 
+    private CinemachineFramingTransposer camBody;
+
     public bool isHit { get; private set; } 
 
     private void Awake()
@@ -44,6 +49,7 @@ public class Hero : MonoBehaviour
         //Debug.Log(_groundMask.value);
         //Debug.Log(1 << gameObject.layer);
         //Debug.Log(_groundMask | (1 << gameObject.layer));
+        camBody = _cinemachineCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
@@ -56,6 +62,15 @@ public class Hero : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_direction.x != 0)
+        {
+            camBody.m_DeadZoneWidth = camBody.m_DeadZoneWidth * .9f;
+        }
+        else
+        {
+            camBody.m_DeadZoneWidth = 0.8f;
+        }
+
         float xVelocity = _direction.x * _speed;
         float yVelocity = CalculateYVelocity();
 
