@@ -6,13 +6,16 @@ using Cinemachine;
 public class Hero : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera _cinemachineCamera;
-
+    [Space][Header("Particles")]
     [SerializeField] private SpawnComponent _spawnStepsComponent;
     [SerializeField] private SpawnComponent _spawnJumpComponent;
+    [SerializeField] private SpawnComponent _spawnDownComponent;
     [SerializeField] private ParticleSystem _hitParticle;
+    [Space]
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpSpeed;
     [SerializeField] private float _damageJumpSpeed;
+    [SerializeField] private float _slamDownVelocity;
     [SerializeField] private LayerMask _groundMask;
     
     [SerializeField] private float _interactRadius;
@@ -35,6 +38,7 @@ public class Hero : MonoBehaviour
     private bool _isGrounded;
     private bool _allowDoubleJump;
     private bool _allowFallingJump;
+    private bool _wasDoubleJump = false;
 
     private int _coinsAmount = 0;
     private int _coinsValue = 0;
@@ -123,15 +127,19 @@ public class Hero : MonoBehaviour
      
 
         if (_isGrounded || _allowFallingJump)
-        {       
+        {
+            _wasDoubleJump = false;
             velocity += _jumpSpeed;
             if(_allowFallingJump) velocity = _jumpSpeed;
             _allowFallingJump = false;
+            _spawnJumpComponent.Spawn();
         }
         else if (_allowDoubleJump) 
         {
+            _wasDoubleJump = true;
             velocity = _jumpSpeed;
             _allowDoubleJump = false;
+            _spawnJumpComponent.Spawn();
         }
 
         return velocity;
@@ -146,6 +154,22 @@ public class Hero : MonoBehaviour
         else if (_direction.x < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.IsInLayer(_groundMask))
+        {
+            var contact = collision.contacts[0];
+            if(contact.relativeVelocity.y >= _slamDownVelocity)
+            {
+                _spawnDownComponent.Spawn();
+            }
+            else if (_wasDoubleJump == true)
+            {
+                _spawnDownComponent.Spawn();
+            }
         }
     }
 
