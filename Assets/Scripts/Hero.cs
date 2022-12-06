@@ -211,6 +211,7 @@ public class Hero : MonoBehaviour
 
     public void SaySomething()
     {
+        _animator.SetTrigger("attack");
         Debug.Log("Say something");
     }
 
