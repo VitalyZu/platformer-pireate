@@ -12,11 +12,16 @@ public class Hero : MonoBehaviour
     [SerializeField] private SpawnComponent _spawnDownComponent;
     [SerializeField] private ParticleSystem _hitParticle;
     [Space]
+    [SerializeField] private int _damage;
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpSpeed;
     [SerializeField] private float _damageJumpSpeed;
     [SerializeField] private float _slamDownVelocity;
     [SerializeField] private LayerMask _groundMask;
+
+    [Space]
+    [SerializeField] CheckCircleOverlap _attackOverlap;
+    [Space]
     
     [SerializeField] private float _interactRadius;
     [SerializeField] private LayerMask _interactMask;
@@ -28,6 +33,7 @@ public class Hero : MonoBehaviour
     private static readonly int verticalVelocityKey = Animator.StringToHash("verticalVelocity");
     private static readonly int isRunningKey = Animator.StringToHash("isRunning");
     private static readonly int hitKey = Animator.StringToHash("hit");
+    private static readonly int attackKey = Animator.StringToHash("attack");
 
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _sprite;
@@ -211,7 +217,6 @@ public class Hero : MonoBehaviour
 
     public void SaySomething()
     {
-        _animator.SetTrigger("attack");
         Debug.Log("Say something");
     }
 
@@ -224,6 +229,20 @@ public class Hero : MonoBehaviour
             if (interactComponent != null)
             {
                 interactComponent.Interact();
+            }
+        }
+    }
+
+    public void Attack()
+    {
+        _animator.SetTrigger(attackKey);
+        GameObject[] gos = _attackOverlap.CheckObjectsInRange();
+        foreach (var item in gos)
+        {
+            HealthComponent objHealthCom = item.GetComponent<HealthComponent>();
+            if (objHealthCom != null && item.CompareTag("Enemy"))
+            {
+                objHealthCom.DealHealth(_damage);
             }
         }
     }
