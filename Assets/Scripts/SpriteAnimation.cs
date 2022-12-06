@@ -20,14 +20,20 @@ public class SpriteAnimation : MonoBehaviour
 
     private bool _isPlaying = true;
 
+    public string animationName { get; private set; }
+
+    private void Awake()
+    {
+        enabled = false;
+    }
+
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _secondsPerFrame = 1f / _frameRate;
         _nextFrameTime = Time.time + _secondsPerFrame;
 
-        SetAnimationByName(_startName);
-        
+        SetAnimationByName(_startName);        
     }
 
     private void Update()
@@ -41,6 +47,7 @@ public class SpriteAnimation : MonoBehaviour
 
     private void SetClip(int index)
     {
+        animationName = _animationsClip[index].name;
         if (_nextFrameTime > Time.time) return;
         if (_currentSpriteIndex >= _animationsClip[index].sprites.Length)
         {
@@ -54,6 +61,10 @@ public class SpriteAnimation : MonoBehaviour
                 }
 
                 _currentSpriteIndex = 0;
+
+                Debug.Log("Allow next");
+                _animationsClip[index].onAnimationComplete?.Invoke();
+
                 return;
             }
             if (_animationsClip[index].loop)
@@ -62,7 +73,11 @@ public class SpriteAnimation : MonoBehaviour
             }
             else
             {
-                _isPlaying = false;
+                enabled = _isPlaying = false;
+
+                Debug.Log("no loop");
+                _animationsClip[index].onAnimationComplete?.Invoke();
+
                 _onComplete?.Invoke();
                 return;
             }
@@ -74,12 +89,14 @@ public class SpriteAnimation : MonoBehaviour
 
     public void SetAnimationByName(string name)
     {
+        Debug.Log("Set Animation by name" + name);
         _currentSpriteIndex = 0;
         for (int i = 0; i < _animationsClip.Length; i++)
         {
             if (_animationsClip[i].name == name)
             {
                 _clipIndex = i;
+                enabled = _isPlaying = true;
             }
         }
         if (_clipIndex == null)
@@ -89,6 +106,15 @@ public class SpriteAnimation : MonoBehaviour
         }
     }
 
+    private void OnBecameInvisible()
+    {
+        enabled = false;
+    }
+    private void OnBecameVisible()
+    {
+        enabled = _isPlaying;
+    }
+
     [Serializable]
     public class AnimationClip
     {
@@ -96,5 +122,6 @@ public class SpriteAnimation : MonoBehaviour
         public bool loop;
         public Sprite[] sprites;
         public bool allowNext;
+        public UnityEvent onAnimationComplete;
     }
 }

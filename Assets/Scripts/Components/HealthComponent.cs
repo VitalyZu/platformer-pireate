@@ -11,17 +11,41 @@ public class HealthComponent : MonoBehaviour
     [SerializeField] private UnityEvent _onDie;
 
     private Hero _hero;
+    //private SpriteAnimation _spriteAnimationComponent;
     private bool _isHit;
 
     private void Awake()
     {
         _hero = gameObject.GetComponent<Hero>();
-        
+        //_spriteAnimationComponent = gameObject.GetComponent<SpriteAnimation>();
     }
 
     public void DealHealth(int health)
     {
-        _isHit = _hero.isHit;
+        Debug.Log("Deal health");
+        if (_hero != null)
+        {
+            _isHit = _hero.isHit;
+        }
+        else
+        {
+            _isHit = false;
+        }
+        /*else 
+        {
+            if (_spriteAnimationComponent != null)
+            {
+                if (_spriteAnimationComponent.animationName == "hit")
+                {
+                    _isHit = true;                  
+                }
+                else 
+                {
+                    _isHit = false;
+                }
+            }           
+        }*/
+
         if (_isHit) return;
 
         _health += health;

@@ -11,6 +11,7 @@ public class EnterCollisionComponent : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Collision enter");
         foreach (var item in _tag)
         {
             if (collision.gameObject.CompareTag(item))
@@ -22,6 +23,7 @@ public class EnterCollisionComponent : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "Props") return;
         foreach (var item in _tag)
         {
             if (collision.gameObject.CompareTag(item))
