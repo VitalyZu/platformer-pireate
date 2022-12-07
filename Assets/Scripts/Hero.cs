@@ -271,7 +271,6 @@ public class Hero : MonoBehaviour
 
     public bool IsGround() 
     {
-        Debug.Log(_layerCheck.isTouchingLayer);
         return _layerCheck.isTouchingLayer;
     }
 
