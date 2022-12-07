@@ -10,9 +10,9 @@ public class Hero : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera _cinemachineCamera;
     [Space][Header("Particles")]
     [SerializeField] private SpawnComponent _spawnStepsComponent;
-
     [SerializeField] private SpawnComponent _spawnJumpComponent;
     [SerializeField] private SpawnComponent _spawnDownComponent;
+    [SerializeField] private SpawnComponent _spawnAttackComponent;
     [SerializeField] private ParticleSystem _hitParticle;
     [Space]
     [SerializeField] private int _damage;
@@ -290,5 +290,10 @@ public class Hero : MonoBehaviour
     public void SpawnJumpDust()
     {
         _spawnJumpComponent.Spawn();
+    }
+
+    public void SpawnAttackDust()
+    {
+        _spawnAttackComponent.Spawn();
     }
 }

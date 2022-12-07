@@ -4883,7 +4883,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 735149498}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &501582642
 ParticleSystemRenderer:
@@ -9850,7 +9850,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6152083, y: 3.6752083, z: -10}
+  m_LocalPosition: {x: -1.6152083, y: -6.264792, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10831,6 +10831,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74effd63da07a0340a627afb9629f0eb, type: 3}
+--- !u!1 &694852376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 694852377}
+  - component: {fileID: 694852378}
+  m_Layer: 0
+  m_Name: SwordAttackParticle
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &694852377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694852376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.009, y: 0.168, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 735149498}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &694852378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694852376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8d0a0151bba8b4484b763b7f054061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 694852377}
+  _prefab: {fileID: 30315560601359530, guid: 5ad5d565e8712a341920ed670985cdc6, type: 3}
 --- !u!1 &721646969
 GameObject:
   m_ObjectHideFlags: 0
@@ -10893,7 +10938,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721646969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6152083, y: 3.6752083, z: -10}
+  m_LocalPosition: {x: -1.6152083, y: -6.264792, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 453950218}
@@ -10958,7 +11003,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 735149498}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &730488809
 MonoBehaviour:
@@ -11058,11 +11103,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735149496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.61, y: 3.67, z: 0}
+  m_LocalPosition: {x: -1.61, y: -6.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1457373251}
   - {fileID: 1226214383}
+  - {fileID: 694852377}
   - {fileID: 730488808}
   - {fileID: 1883178268}
   - {fileID: 1259802174}
@@ -11099,6 +11145,7 @@ MonoBehaviour:
   _spawnStepsComponent: {fileID: 730488809}
   _spawnJumpComponent: {fileID: 1883178269}
   _spawnDownComponent: {fileID: 1259802175}
+  _spawnAttackComponent: {fileID: 694852378}
   _hitParticle: {fileID: 501582643}
   _damage: 1
   _speed: 5
@@ -13306,7 +13353,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 735149498}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1259802175
 MonoBehaviour:
@@ -21444,7 +21491,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 735149498}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1883178269
 MonoBehaviour:
@@ -22738,12 +22785,12 @@ PrefabInstance:
     - target: {fileID: 407327208386294041, guid: 830a259e8ecdbda47918e879552b8d56,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.89
+      value: -0.56
       objectReference: {fileID: 0}
     - target: {fileID: 407327208386294041, guid: 830a259e8ecdbda47918e879552b8d56,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6477899
+      value: -6.45
       objectReference: {fileID: 0}
     - target: {fileID: 407327208386294041, guid: 830a259e8ecdbda47918e879552b8d56,
         type: 3}
