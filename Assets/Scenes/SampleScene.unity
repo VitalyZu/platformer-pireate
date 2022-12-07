@@ -11100,7 +11100,7 @@ MonoBehaviour:
   _spawnJumpComponent: {fileID: 1883178269}
   _spawnDownComponent: {fileID: 1259802175}
   _hitParticle: {fileID: 501582643}
-  _damage: -1
+  _damage: 1
   _speed: 5
   _jumpSpeed: 16
   _damageJumpSpeed: 10

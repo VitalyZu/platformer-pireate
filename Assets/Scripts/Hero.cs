@@ -235,14 +235,20 @@ public class Hero : MonoBehaviour
 
     public void Attack()
     {
+        Debug.Log("Hero attack");
         _animator.SetTrigger(attackKey);
+        
+    }
+
+    public void MakeAttack()
+    {
         GameObject[] gos = _attackOverlap.CheckObjectsInRange();
         foreach (var item in gos)
         {
             HealthComponent objHealthCom = item.GetComponent<HealthComponent>();
             if (objHealthCom != null && item.CompareTag("Enemy"))
             {
-                objHealthCom.DealHealth(_damage);
+                objHealthCom.DealHealth(-_damage);
             }
         }
     }

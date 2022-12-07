@@ -22,7 +22,6 @@ public class HealthComponent : MonoBehaviour
 
     public void DealHealth(int health)
     {
-        Debug.Log("Deal health");
         if (_hero != null)
         {
             _isHit = _hero.isHit;

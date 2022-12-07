@@ -62,7 +62,6 @@ public class SpriteAnimation : MonoBehaviour
 
                 _currentSpriteIndex = 0;
 
-                Debug.Log("Allow next");
                 _animationsClip[index].onAnimationComplete?.Invoke();
 
                 return;
@@ -75,7 +74,6 @@ public class SpriteAnimation : MonoBehaviour
             {
                 enabled = _isPlaying = false;
 
-                Debug.Log("no loop");
                 _animationsClip[index].onAnimationComplete?.Invoke();
 
                 _onComplete?.Invoke();
@@ -89,7 +87,6 @@ public class SpriteAnimation : MonoBehaviour
 
     public void SetAnimationByName(string name)
     {
-        Debug.Log("Set Animation by name" + name);
         _currentSpriteIndex = 0;
         for (int i = 0; i < _animationsClip.Length; i++)
         {

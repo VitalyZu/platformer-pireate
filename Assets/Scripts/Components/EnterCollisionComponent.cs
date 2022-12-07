@@ -11,7 +11,6 @@ public class EnterCollisionComponent : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision enter");
         foreach (var item in _tag)
         {
             if (collision.gameObject.CompareTag(item))
