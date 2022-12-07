@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.Animations;
 using Cinemachine;
+using System;
 
 public class Hero : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera _cinemachineCamera;
     [Space][Header("Particles")]
     [SerializeField] private SpawnComponent _spawnStepsComponent;
+
     [SerializeField] private SpawnComponent _spawnJumpComponent;
     [SerializeField] private SpawnComponent _spawnDownComponent;
     [SerializeField] private ParticleSystem _hitParticle;
@@ -21,8 +24,12 @@ public class Hero : MonoBehaviour
 
     [Space]
     [SerializeField] CheckCircleOverlap _attackOverlap;
+
     [Space]
-    
+    [SerializeField] private AnimatorController _armedAnimatorController;
+    [SerializeField] private AnimatorController _unarmedAnimatorController;
+
+    [Space]
     [SerializeField] private float _interactRadius;
     [SerializeField] private LayerMask _interactMask;
     private Collider2D[] _interactResult = new Collider2D[1];
@@ -40,6 +47,7 @@ public class Hero : MonoBehaviour
     private Animator _animator;
     private Vector2 _direction;
 
+    private bool _isArmed;
     private bool _isJumping;
     private bool _isGrounded;
     private bool _allowDoubleJump;
@@ -235,11 +243,12 @@ public class Hero : MonoBehaviour
 
     public void Attack()
     {
-        Debug.Log("Hero attack");
+        if (!_isArmed) return;
         _animator.SetTrigger(attackKey);
         
     }
 
+    //Event trigger
     public void MakeAttack()
     {
         GameObject[] gos = _attackOverlap.CheckObjectsInRange();
@@ -253,8 +262,16 @@ public class Hero : MonoBehaviour
         }
     }
 
+    public void ArmHero()
+    {
+        _isArmed = true;
+
+        _animator.runtimeAnimatorController = _armedAnimatorController;
+    }
+
     public bool IsGround() 
     {
+        Debug.Log(_layerCheck.isTouchingLayer);
         return _layerCheck.isTouchingLayer;
     }
 
