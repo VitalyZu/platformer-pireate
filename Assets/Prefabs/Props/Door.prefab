@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cdf1c63105e9944a83cbaa72233e46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startName: idle
+  _startName: close
   _frameRate: 10
   _onComplete:
     m_PersistentCalls:
@@ -118,6 +118,18 @@ MonoBehaviour:
     loop: 0
     sprites:
     - {fileID: 21300000, guid: 7b5310db9078817489a98765b192f00d, type: 3}
+    allowNext: 0
+    onAnimationComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: close
+    loop: 0
+    sprites:
+    - {fileID: 21300000, guid: 72fa41117d82eb541bfe225271ce77b0, type: 3}
+    - {fileID: 21300000, guid: 297c1da1ff10a4145b294f2df2e1d6c3, type: 3}
+    - {fileID: 21300000, guid: f2e20055b7c585145a5cfba84c2d7e99, type: 3}
+    - {fileID: 21300000, guid: 5d7254c7214b223499a1741b57e11a76, type: 3}
+    - {fileID: 21300000, guid: 9c2639f0c41adee4b93dcffa555176cf, type: 3}
     allowNext: 0
     onAnimationComplete:
       m_PersistentCalls:
