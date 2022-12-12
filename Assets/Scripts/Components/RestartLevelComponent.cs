@@ -7,6 +7,9 @@ public class RestartLevelComponent : MonoBehaviour
 {
     public void RestartLevel()
     {
+        GameSession _session = FindObjectOfType<GameSession>();
+        DestroyImmediate(_session);
+
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }

@@ -6,7 +6,12 @@ public class GameSession : MonoBehaviour
 {
     [SerializeField] private PlayerData _playerData;
 
-    public PlayerData Data { get; private set; }
+    //public PlayerData Data => _playerData;
+    public PlayerData Data 
+    {
+        get { return _playerData; }
+        private set { Data = _playerData; }
+    }
 
     private void Awake()
     {

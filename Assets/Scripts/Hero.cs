@@ -59,7 +59,9 @@ public class Hero : MonoBehaviour
 
     private CinemachineFramingTransposer camBody;
 
-    public bool isHit { get; private set; } 
+    private GameSession _gameSession;
+
+    public bool isHit { get; private set; }
 
     private void Awake()
     {
@@ -71,6 +73,15 @@ public class Hero : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        _gameSession = FindObjectOfType<GameSession>();
+        var healthComponent = GetComponent<HealthComponent>();
+
+        healthComponent.SetHealth(_gameSession.Data.HP);
+        UpdateHeroWeapon();
     }
 
     private void Update()
@@ -202,6 +213,11 @@ public class Hero : MonoBehaviour
         _hitParticle.Play();
     }
 
+    public void OnHealthChanged(int currentHealth)
+    {
+        _gameSession.Data.HP = currentHealth;
+    }
+
     public void GetDamage()
     {
         _isJumping = false;
@@ -243,7 +259,7 @@ public class Hero : MonoBehaviour
 
     public void Attack()
     {
-        if (!_isArmed) return;
+        if (!_gameSession.Data.IsArmed) return;
         _animator.SetTrigger(attackKey);
         
     }
@@ -264,9 +280,20 @@ public class Hero : MonoBehaviour
 
     public void ArmHero()
     {
-        _isArmed = true;
+        _gameSession.Data.IsArmed = true;
+        UpdateHeroWeapon();      
+    }
 
-        _animator.runtimeAnimatorController = _armedAnimatorController;
+    private void UpdateHeroWeapon()
+    {
+        if (_gameSession.Data.IsArmed)
+        {
+            _animator.runtimeAnimatorController = _armedAnimatorController;
+        }
+        else 
+        {
+            _animator.runtimeAnimatorController = _unarmedAnimatorController;
+        }
     }
 
     public bool IsGround() 
@@ -276,9 +303,9 @@ public class Hero : MonoBehaviour
 
     public void setCoins(int coins)
     {
-        _coinsValue++;
-        _coinsAmount += coins;
-        Debug.Log($"Coins: {_coinsValue} ({ _coinsAmount} $)");
+        _gameSession.Data.Coins++;
+        _gameSession.Data.CoinsAmount += coins;
+        Debug.Log($"Coins: {_gameSession.Data.Coins} ({_gameSession.Data.CoinsAmount} $)");
     }
 
     public void SpawnStepsDust()

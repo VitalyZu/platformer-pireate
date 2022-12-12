@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +10,7 @@ public class HealthComponent : MonoBehaviour
     [SerializeField] private UnityEvent _onDamage;
     [SerializeField] private UnityEvent _onHeal;
     [SerializeField] private UnityEvent _onDie;
+    [SerializeField] private HealthChangeEvent _onChange;
 
     private Hero _hero;
     //private SpriteAnimation _spriteAnimationComponent;
@@ -48,6 +50,7 @@ public class HealthComponent : MonoBehaviour
         if (_isHit) return;
 
         _health += health;
+        _onChange?.Invoke(_health);
         Debug.Log(_health);
 
         if (health < 0 && !_isHit)
@@ -64,4 +67,23 @@ public class HealthComponent : MonoBehaviour
             _onDie?.Invoke();
         }
     }
+
+    public void SetHealth(int health)
+    {
+        _health = health;
+    }
+
+#if UNITY_EDITOR
+    [ContextMenu("Update Health")]
+    private void UpdateHealth()
+    {
+        _onChange?.Invoke(_health);
+    }
+#endif
+
+    [Serializable]
+    public class HealthChangeEvent : UnityEvent<int>
+    {}
+
+    
 }
