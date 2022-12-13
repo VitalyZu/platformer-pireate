@@ -10,6 +10,11 @@ public class PlayerData
     public int CoinsAmount;
     public int HP;
     public bool IsArmed;
+
+    public object Clone()
+    {
+        return this.MemberwiseClone();
+    }
 }
     
 

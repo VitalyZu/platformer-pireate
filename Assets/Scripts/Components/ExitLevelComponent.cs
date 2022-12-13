@@ -8,6 +8,9 @@ public class ExitLevelComponent : MonoBehaviour
     [SerializeField] private string _sceneName;
     public void Exit()
     {
+        GameSession session = FindObjectOfType<GameSession>();
+        session.initPlayerData = (PlayerData)session.Data.Clone();
+
         SceneManager.LoadScene(_sceneName);
     }
 }

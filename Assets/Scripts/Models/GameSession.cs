@@ -5,16 +5,17 @@ using UnityEngine;
 public class GameSession : MonoBehaviour
 {
     [SerializeField] private PlayerData _playerData;
+    public PlayerData initPlayerData;
 
     //public PlayerData Data => _playerData;
     public PlayerData Data 
     {
         get { return _playerData; }
-        private set { Data = _playerData; }
+        set { _playerData = value; }
     }
 
     private void Awake()
-    {
+    {       
         if (IsSessionExist())
         {
             DestroyImmediate(gameObject);
@@ -22,7 +23,9 @@ public class GameSession : MonoBehaviour
         else
         {
             DontDestroyOnLoad(gameObject);
+            initPlayerData = (PlayerData)_playerData.Clone();
         }
+        
     }
 
     private bool IsSessionExist()
