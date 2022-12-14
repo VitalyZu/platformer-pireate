@@ -5,6 +5,7 @@ using UnityEngine;
 public class LayerCheck : MonoBehaviour
 {
     [SerializeField] private LayerMask _groundMask;
+    [SerializeField] private LayerMask _barrelMask;
     private Collider2D _collider;
 
     public bool isTouchingLayer;
@@ -16,10 +17,10 @@ public class LayerCheck : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision) 
     {
-        isTouchingLayer = _collider.IsTouchingLayers(_groundMask);
+        isTouchingLayer = _collider.IsTouchingLayers(_groundMask) || _collider.IsTouchingLayers(_barrelMask);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isTouchingLayer = _collider.IsTouchingLayers(_groundMask);
+        isTouchingLayer = _collider.IsTouchingLayers(_groundMask) || _collider.IsTouchingLayers(_barrelMask);
     }
 }

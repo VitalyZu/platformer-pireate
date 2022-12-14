@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 629778015166009888}
   - component: {fileID: 1770783628724163562}
   - component: {fileID: 1817152504}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: DestructableBarrel
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -237,6 +237,9 @@ MonoBehaviour:
           m_StringArgument: destroy
           m_BoolArgument: 0
         m_CallState: 2
+  _onChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!60 &629778015166009889
 PolygonCollider2D:
   m_ObjectHideFlags: 0
