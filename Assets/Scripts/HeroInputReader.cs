@@ -12,14 +12,6 @@ public class HeroInputReader : MonoBehaviour
         _hero.SetDirection(direction);
     }
 
-    public void OnSaySomething(InputAction.CallbackContext context)
-    {
-        if (context.canceled) 
-        {
-            _hero.SaySomething();
-        }
-    }
-
     public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.canceled)
