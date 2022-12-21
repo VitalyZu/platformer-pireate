@@ -9,6 +9,7 @@ public class Creature : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _damageJumpSpeed;
     [SerializeField] private int _damage;
+    [SerializeField] private bool _invertScale;
     [Space]
     [Header("Layers check")]
     [SerializeField] protected LayerMask _groundMask;
@@ -72,13 +73,14 @@ public class Creature : MonoBehaviour
 
     private void SetSpriteDirection()
     {
+        var multiplier = _invertScale ? -1 : 1;
         if (Direction.x > 0)
         {
-            transform.localScale = Vector3.one;
+            transform.localScale = new Vector3(multiplier, 1, 1);
         }
         else if (Direction.x < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-1 * multiplier, 1, 1);
         }
     }
 
