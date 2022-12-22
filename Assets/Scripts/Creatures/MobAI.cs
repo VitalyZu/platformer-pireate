@@ -17,6 +17,7 @@ public class MobAI : MonoBehaviour
     private SpawnListComponent _particles;
     private Creature _creature;
     private Animator _animator;
+    private Patrol _patrol;
 
     private bool _isDead;
 
@@ -27,11 +28,12 @@ public class MobAI : MonoBehaviour
         _particles = GetComponent<SpawnListComponent>();
         _creature = GetComponent<Creature>();
         _animator = GetComponent<Animator>();
+        _patrol = GetComponent<Patrol>();
     }
 
     private void Start()
     {
-        StartState(Patrolling());
+        StartState(_patrol.DoPatrol());
     }
 
     private void StartState(IEnumerator coroutine)
@@ -63,11 +65,6 @@ public class MobAI : MonoBehaviour
         _animator.SetBool(dieKey, true);
         _isDead = true;
         if (_current != null) StopCoroutine(_current);
-    }
-
-    private IEnumerator Patrolling()
-    {
-        yield return null;
     }
 
     private IEnumerator AgroToHero()
