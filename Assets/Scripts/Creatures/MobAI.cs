@@ -11,7 +11,8 @@ public class MobAI : MonoBehaviour
     [SerializeField] float _attackCooldown = 1f;
     [SerializeField] float _missCooldown = 1f;
 
-    private Coroutine _current;
+    private IEnumerator _current;
+    //private Coroutine _current;
     private GameObject _target;
 
     private SpawnListComponent _particles;
@@ -38,11 +39,17 @@ public class MobAI : MonoBehaviour
 
     private void StartState(IEnumerator coroutine)
     {
+        //if (_isDead) return;
         _creature.SetDirection(Vector2.zero);
 
-        if (_current != null) StopCoroutine(_current);
-        
-        _current = StartCoroutine(coroutine);
+        if (_current != null)
+        {
+            StopCoroutine(_current);
+        }
+        _current = coroutine;
+        StartCoroutine(coroutine);
+        //_current = StartCoroutine(coroutine);
+
     }
 
     public void OnEnterVision(GameObject go)
@@ -62,9 +69,12 @@ public class MobAI : MonoBehaviour
 
     public void OnDie()
     {
+        _creature.SetDirection(Vector2.zero);
+
         _animator.SetBool(dieKey, true);
         _isDead = true;
         if (_current != null) StopCoroutine(_current);
+        //StopAllCoroutines();
     }
 
     private IEnumerator AgroToHero()
@@ -77,23 +87,27 @@ public class MobAI : MonoBehaviour
 
     private IEnumerator GoToHero()
     {
+        //yield return null;
         while (_vision.isTouchingLayer)
         {
             if (_canAttack.isTouchingLayer)
             {
+                //yield return null;
                 StartState(Attack());
             }
             else 
             {
                 SetDirectionToTarget();
             }
-            
             yield return null;
         }
-        //_creature.SetDirection(Vector2.zero);
+
+        _creature.SetDirection(Vector2.zero);
         _particles.Spawn("Miss");
 
         yield return new WaitForSeconds(_missCooldown);
+
+        StartState(_patrol.DoPatrol());
     }
 
     private IEnumerator Attack()
@@ -103,6 +117,16 @@ public class MobAI : MonoBehaviour
             _creature.Attack();
             yield return new WaitForSeconds(_attackCooldown);
         }
+        
         StartState(GoToHero());     
+    }
+
+    [ContextMenu("StopAllRoute")]
+    public void StopAllRoute()
+    {
+        if (_current != null)
+        {
+            StopCoroutine(_current);
+        }
     }
 }

@@ -46,7 +46,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.9009938, y: 0.1653881}
+  m_Offset: {x: -0.415313, y: 0.1653881}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -57,7 +57,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.8019876, y: 1.0839281}
+  m_Size: {x: 3.7733493, y: 1.0839281}
   m_EdgeRadius: 0
 --- !u!114 &1116151090531676241
 MonoBehaviour:
@@ -212,7 +212,6 @@ GameObject:
   - component: {fileID: 703095683}
   - component: {fileID: 703095682}
   - component: {fileID: 5454618314007774026}
-  - component: {fileID: 3001577373174554725}
   m_Layer: 13
   m_Name: AttackPosition
   m_TagString: Untagged
@@ -330,25 +329,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.32
---- !u!114 &3001577373174554725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4462260606489225150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aca6635f9dd8ed4281e64232495dd91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _groundMask:
-    serializedVersion: 2
-    m_Bits: 16384
-  _barrelMask:
-    serializedVersion: 2
-    m_Bits: 0
-  isTouchingLayer: 0
 --- !u!1 &4462260606720355346
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,8 +504,8 @@ GameObject:
   - component: {fileID: 8807265228025670495}
   - component: {fileID: 8555890927805733236}
   - component: {fileID: 1427470193}
-  - component: {fileID: 1917292653800096525}
-  m_Layer: 13
+  - component: {fileID: 1952330103}
+  m_Layer: 8
   m_Name: Sharky
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -639,7 +619,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.028413355}
-  m_Size: {x: 0.5, y: 0.6831733}
+  m_Size: {x: 0.5, y: 0.7}
   m_Direction: 0
 --- !u!95 &4462260607072440720
 Animator:
@@ -672,7 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad785dd199cc380468b9cad3a3cbc9e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 5
+  _health: 1
   _onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -720,7 +700,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000905931, y: -0.26497597}
+  m_Offset: {x: 0.07206848, y: -0.15289417}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -731,7 +711,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4942224, y: 0.20721126}
+  m_Size: {x: 0.6365475, y: 0.43137485}
   m_EdgeRadius: 0
 --- !u!114 &8807265228025670495
 MonoBehaviour:
@@ -793,7 +773,8 @@ MonoBehaviour:
   _canAttack: {fileID: 703095682}
   _agroTime: 0.5
   _attackCooldown: 1
---- !u!114 &1917292653800096525
+  _missCooldown: 1
+--- !u!114 &1952330103
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -802,13 +783,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4462260607072440808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a32400735d07ae47834d5734e9328be, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c1c7868d02d5d943bec56346df9ab14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vision: {fileID: 0}
-  _canAttack: {fileID: 0}
-  _agroTime: 0.5
-  _attackCooldown: 1
+  _points:
+  - {fileID: 0}
+  - {fileID: 0}
+  _treshold: 1
 --- !u!1 &8474973763003423295
 GameObject:
   m_ObjectHideFlags: 0

@@ -595,6 +595,7 @@ MonoBehaviour:
   _speed: 5
   _damageJumpSpeed: 10
   _damage: 1
+  _invertScale: 0
   _groundMask:
     serializedVersion: 2
     m_Bits: 256
