@@ -10,6 +10,7 @@ public class SpriteAnimation : MonoBehaviour
     [SerializeField] private string _startName;
     [SerializeField] private int _frameRate;
     [SerializeField] private UnityEvent _onComplete;
+    [SerializeField] private bool _isParticle = false;
     [SerializeField] private AnimationClip[] _animationsClip;
 
     private SpriteRenderer _spriteRenderer;
@@ -24,7 +25,7 @@ public class SpriteAnimation : MonoBehaviour
 
     private void Awake()
     {
-        enabled = false;
+        enabled = _isParticle;
     }
 
     private void Start()
@@ -38,6 +39,7 @@ public class SpriteAnimation : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("Animation");
         if (_isPlaying)
         {
             SetClip((int)_clipIndex);

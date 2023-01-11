@@ -26,5 +26,13 @@ public class HeroInputReader : MonoBehaviour
         {
             _hero.Attack();
         }
-    } 
+    }
+
+    public void OnThrow(InputAction.CallbackContext context)
+    {
+        if (context.canceled)
+        {
+            Debug.Log(123);
+        }
+    }
 }
