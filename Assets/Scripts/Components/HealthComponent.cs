@@ -24,6 +24,8 @@ public class HealthComponent : MonoBehaviour
 
     public void DealHealth(int health)
     {
+        if (_health <= 0) return;
+
         if (_hero != null)
         {
             _isHit = _hero.isHit;
