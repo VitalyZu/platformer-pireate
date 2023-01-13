@@ -39,7 +39,6 @@ public class SpriteAnimation : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Animation");
         if (_isPlaying)
         {
             SetClip((int)_clipIndex);

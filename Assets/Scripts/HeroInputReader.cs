@@ -30,7 +30,7 @@ public class HeroInputReader : MonoBehaviour
 
     public void OnThrow(InputAction.CallbackContext context)
     {
-        if (context.canceled)
+        if (context.performed)
         {
             Debug.Log(123);
         }
