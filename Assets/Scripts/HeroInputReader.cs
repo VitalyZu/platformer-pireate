@@ -32,7 +32,7 @@ public class HeroInputReader : MonoBehaviour
     {
         if (context.performed)
         {
-            Debug.Log(123);
+            _hero.Throw();
         }
     }
 }

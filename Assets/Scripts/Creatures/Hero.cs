@@ -23,6 +23,8 @@ public class Hero : Creature
     [Header("Particles")]
     [SerializeField] private ParticleSystem _hitParticle;
 
+    private static readonly int throwKey = Animator.StringToHash("throw");
+
     private Collider2D[] _interactResult = new Collider2D[1];    
     private SpriteRenderer _sprite;
     private bool _isArmed;      
@@ -160,6 +162,15 @@ public class Hero : Creature
     public void Interact()
     {
         _interactionCheck.Check();
+    }
+
+    public void OnDoThrow()
+    { 
+    
+    }
+    public void Throw() 
+    {
+        Animator.SetTrigger(throwKey);
     }
 
     public override void Attack()
