@@ -165,8 +165,8 @@ public class Hero : Creature
     }
 
     public void OnDoThrow()
-    { 
-    
+    {
+        _particles.Spawn("Throw");
     }
     public void Throw() 
     {
