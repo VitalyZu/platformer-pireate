@@ -7292,6 +7292,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls: []
@@ -18287,7 +18290,7 @@ PrefabInstance:
     - target: {fileID: 629778015166009890, guid: 5667f042b564baa4e8c8b1fa4a40f595,
         type: 3}
       propertyPath: _health
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 629778015166009916, guid: 5667f042b564baa4e8c8b1fa4a40f595,
         type: 3}
@@ -18297,12 +18300,12 @@ PrefabInstance:
     - target: {fileID: 629778015166009916, guid: 5667f042b564baa4e8c8b1fa4a40f595,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.02
+      value: -0.28
       objectReference: {fileID: 0}
     - target: {fileID: 629778015166009916, guid: 5667f042b564baa4e8c8b1fa4a40f595,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7
+      value: -6.48
       objectReference: {fileID: 0}
     - target: {fileID: 629778015166009916, guid: 5667f042b564baa4e8c8b1fa4a40f595,
         type: 3}

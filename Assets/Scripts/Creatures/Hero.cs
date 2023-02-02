@@ -167,6 +167,9 @@ public class Hero : Creature
     public void OnDoThrow()
     {
         _particles.Spawn("Throw");
+        _gameSession.Data.IsArmed = false;
+        UpdateHeroWeapon();
+
     }
     public void Throw() 
     {
