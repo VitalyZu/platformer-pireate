@@ -13,12 +13,14 @@ public class Projectile : MonoBehaviour
     {
         _direction = transform.lossyScale.x > 0 ? 1 : -1;
         _rb = GetComponent<Rigidbody2D>();
+        var force = new Vector2(_speed * _direction, 0);
+        _rb.AddForce(force, ForceMode2D.Impulse);
     }
 
-    private void FixedUpdate()
-    {
-        var position = _rb.position;
-        position.x += _speed * _direction;
-        _rb.MovePosition(position);
-    }
+    //private void FixedUpdate()
+    //{
+    //    var position = _rb.position;
+    //    position.x += _speed * _direction;
+    //    _rb.MovePosition(position);
+    //}
 }
