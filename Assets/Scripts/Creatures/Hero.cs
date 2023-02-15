@@ -33,6 +33,7 @@ public class Hero : Creature
     private bool _wasDoubleJump = false;
     private int _coinsAmount = 0;
     private int _coinsValue = 0;
+    private int _swordsValue = 0;
     private CinemachineFramingTransposer camBody;
     private GameSession _gameSession;
 
@@ -58,6 +59,8 @@ public class Hero : Creature
 
         healthComponent.SetHealth(_gameSession.Data.HP);
         UpdateHeroWeapon();
+        _swordsValue = _gameSession.Data.Swords;
+        if (_gameSession.Data.IsArmed && _swordsValue == 0) _swordsValue++;
     }
 
     protected override void FixedUpdate()
@@ -72,6 +75,8 @@ public class Hero : Creature
         }
 
         base.FixedUpdate();
+
+        Debug.Log("Swords: " + _swordsValue);
     }
 
     protected override float CalculateYVelocity()
@@ -168,13 +173,14 @@ public class Hero : Creature
     public void OnDoThrow()
     {
         _particles.Spawn("Throw");
+        UpdateSwords(-1);
         //_gameSession.Data.IsArmed = false;
         //UpdateHeroWeapon();
 
     }
     public void Throw() 
     {
-        if (_throwCooldown.IsReady)
+        if (_throwCooldown.IsReady && _swordsValue > 1)
         {
             Animator.SetTrigger(throwKey);
             _throwCooldown.Reset();
@@ -190,7 +196,8 @@ public class Hero : Creature
     public void ArmHero()
     {
         _gameSession.Data.IsArmed = true;
-        UpdateHeroWeapon();      
+        UpdateHeroWeapon();
+        UpdateSwords(1);
     }
 
     private void UpdateHeroWeapon()
@@ -203,6 +210,12 @@ public class Hero : Creature
         {
             Animator.runtimeAnimatorController = _unarmedAnimatorController;
         }
+    }
+
+    private void UpdateSwords(int value)
+    {
+        _swordsValue += value;
+        _gameSession.Data.Swords = _swordsValue;
     }
 
     public void setCoins(int coins)

@@ -8,6 +8,7 @@ public class PlayerData
 { 
     public int Coins;
     public int CoinsAmount;
+    public int Swords;
     public int HP;
     public bool IsArmed;
 
