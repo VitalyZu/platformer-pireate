@@ -22,6 +22,7 @@ public class Hero : Creature
     [Space]
     [Header("Particles")]
     [SerializeField] private ParticleSystem _hitParticle;
+    [SerializeField] private Cooldown _throwCooldown;
 
     private static readonly int throwKey = Animator.StringToHash("throw");
 
@@ -167,13 +168,17 @@ public class Hero : Creature
     public void OnDoThrow()
     {
         _particles.Spawn("Throw");
-        _gameSession.Data.IsArmed = false;
-        UpdateHeroWeapon();
+        //_gameSession.Data.IsArmed = false;
+        //UpdateHeroWeapon();
 
     }
     public void Throw() 
     {
-        Animator.SetTrigger(throwKey);
+        if (_throwCooldown.IsReady)
+        {
+            Animator.SetTrigger(throwKey);
+            _throwCooldown.Reset();
+        }
     }
 
     public override void Attack()

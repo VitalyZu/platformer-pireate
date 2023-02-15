@@ -626,6 +626,8 @@ MonoBehaviour:
     type: 2}
   _interactionCheck: {fileID: 8790957795337427100}
   _hitParticle: {fileID: 4462260607914174307}
+  _throwCooldown:
+    _value: 2
 --- !u!114 &4462260607072440811
 MonoBehaviour:
   m_ObjectHideFlags: 0

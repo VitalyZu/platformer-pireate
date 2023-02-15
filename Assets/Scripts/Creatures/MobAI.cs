@@ -67,6 +67,13 @@ public class MobAI : MonoBehaviour
         _creature.SetDirection(direction.normalized);
     }
 
+    private Vector2 GetDirectionToTarget()
+    {
+        var direction = _target.transform.position - transform.position;
+        direction.y = 0;
+        return direction.normalized;
+    }
+
     public void OnDie()
     {
         _creature.SetDirection(Vector2.zero);
@@ -79,12 +86,19 @@ public class MobAI : MonoBehaviour
 
     private IEnumerator AgroToHero()
     {
+        LookAtHero();
         _particles.Spawn("Exclamation");
         yield return new WaitForSeconds(_agroTime);
         
         StartState(GoToHero());
     }
+    private void LookAtHero()
+    {
+        _creature.SetDirection(Vector2.zero);
 
+        var direction = GetDirectionToTarget();
+        _creature.SetSpriteDirection(direction);
+    }
     private IEnumerator GoToHero()
     {
         //yield return null;
