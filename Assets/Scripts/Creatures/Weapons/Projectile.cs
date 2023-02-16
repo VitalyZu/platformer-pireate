@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float _speed;
+    [SerializeField] private bool _invert;
 
     private Rigidbody2D _rb;
     private int _direction;
@@ -12,6 +13,7 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         _direction = transform.lossyScale.x > 0 ? 1 : -1;
+        _direction = _invert ? _direction * -1 : _direction;
         _rb = GetComponent<Rigidbody2D>();
         var force = new Vector2(_speed * _direction, 0);
         _rb.AddForce(force, ForceMode2D.Impulse);
