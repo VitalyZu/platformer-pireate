@@ -18414,6 +18414,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 402937168656370065, guid: 39b5ce1d39aa8ec4fbde0079bab409c4,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 7.115233
+      objectReference: {fileID: 0}
+    - target: {fileID: 402937168656370065, guid: 39b5ce1d39aa8ec4fbde0079bab409c4,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -2.0862548
+      objectReference: {fileID: 0}
     - target: {fileID: 402937168656370079, guid: 39b5ce1d39aa8ec4fbde0079bab409c4,
         type: 3}
       propertyPath: _collisionAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -18483,6 +18493,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183993986383851938, guid: 39b5ce1d39aa8ec4fbde0079bab409c4,
+        type: 3}
+      propertyPath: _rangeCooldown._value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39b5ce1d39aa8ec4fbde0079bab409c4, type: 3}

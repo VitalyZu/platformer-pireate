@@ -2,27 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : BaseProjetile
 {
-    [SerializeField] private float _speed;
-    [SerializeField] private bool _invert;
-
-    private Rigidbody2D _rb;
-    private int _direction;
-
-    private void Start()
+    protected override void Start()
     {
-        _direction = transform.lossyScale.x > 0 ? 1 : -1;
-        _direction = _invert ? _direction * -1 : _direction;
-        _rb = GetComponent<Rigidbody2D>();
-        var force = new Vector2(_speed * _direction, 0);
-        _rb.AddForce(force, ForceMode2D.Impulse);
+        base.Start();
+        var force = new Vector2(_speed * Direction, 0);
+        Rigidbody.AddForce(force, ForceMode2D.Impulse);
     }
-
-    //private void FixedUpdate()
-    //{
-    //    var position = _rb.position;
-    //    position.x += _speed * _direction;
-    //    _rb.MovePosition(position);
-    //}
 }
