@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 3126273455449398085}
   - component: {fileID: 7524195763254916512}
   - component: {fileID: 9073528661716207204}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SwordProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 4
+  _invert: 0
 --- !u!114 &2996874216996974423
 MonoBehaviour:
   m_ObjectHideFlags: 0
