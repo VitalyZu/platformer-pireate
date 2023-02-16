@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5564780069080179807}
   - component: {fileID: 2603153712165494766}
   - component: {fileID: 8126288876163044749}
+  - component: {fileID: 1300559426843247849}
+  - component: {fileID: 3149893452068484049}
   m_Layer: 0
   m_Name: SilverCoin
   m_TagString: Untagged
@@ -73,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -539696015
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2322180950842035098, guid: 7155e71aa160bd84fa2855f28b924822,
     type: 3}
@@ -116,6 +118,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -141,6 +146,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _collisionAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5564780069080179807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +190,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _isParticle: 0
   _animationsClip:
   - name: Default
     loop: 1
@@ -191,6 +200,9 @@ MonoBehaviour:
     - {fileID: -6323751108524238166, guid: 7155e71aa160bd84fa2855f28b924822, type: 3}
     - {fileID: 2722280177590742205, guid: 7155e71aa160bd84fa2855f28b924822, type: 3}
     allowNext: 0
+    onAnimationComplete:
+      m_PersistentCalls:
+        m_Calls: []
   - name: Destroy
     loop: 0
     sprites:
@@ -199,6 +211,9 @@ MonoBehaviour:
     - {fileID: 7609282858266732271, guid: 7155e71aa160bd84fa2855f28b924822, type: 3}
     - {fileID: -6288512792030432889, guid: 7155e71aa160bd84fa2855f28b924822, type: 3}
     allowNext: 0
+    onAnimationComplete:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!114 &8126288876163044749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,3 +226,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4c40c8fee225d44831b507e0752700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &1300559426843247849
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5564780069080179809}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &3149893452068484049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5564780069080179809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 514a86d17a9aee1489cf19c74a41060f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frequency: 1
+  _amplitude: 0.1
