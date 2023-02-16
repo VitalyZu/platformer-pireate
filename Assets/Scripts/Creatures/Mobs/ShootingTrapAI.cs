@@ -10,7 +10,7 @@ public class ShootingTrapAI : MonoBehaviour
     [SerializeField] private Cooldown _meleeCooldown;
     [SerializeField] private CheckCircleOverlap _meleeAttack;
     [SerializeField] private LayerCheck _meleeCanAttack;
-    [Header("Melee")]
+    [Header("Range")]
     [SerializeField] private Cooldown _rangeCooldown;
     [SerializeField] private SpawnComponent _rangeAttack;
 
