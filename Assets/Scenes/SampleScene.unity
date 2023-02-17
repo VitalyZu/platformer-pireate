@@ -1900,12 +1900,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerData:
+    _inventory: {fileID: 0}
     Coins: 0
     CoinsAmount: 0
     Swords: 0
     HP: 3
     IsArmed: 1
   initPlayerData:
+    _inventory: {fileID: 0}
     Coins: 0
     CoinsAmount: 0
     Swords: 0

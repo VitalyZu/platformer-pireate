@@ -5,7 +5,9 @@ using System;
 
 [Serializable]
 public class PlayerData 
-{ 
+{
+    [SerializeField] private InventoryData _inventory;
+
     public int Coins;
     public int CoinsAmount;
     public int Swords;
