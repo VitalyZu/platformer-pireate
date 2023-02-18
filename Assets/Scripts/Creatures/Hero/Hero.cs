@@ -37,7 +37,10 @@ public class Hero : Creature
     private CinemachineFramingTransposer camBody;
     private GameSession _gameSession;
 
-    
+    private int CoinsCount => _gameSession.Data.Inventory.Count("Coin");
+    private int SwordCount => _gameSession.Data.Inventory.Count("Sword");
+
+
 
     override protected void Awake()
     {
@@ -59,8 +62,14 @@ public class Hero : Creature
 
         healthComponent.SetHealth(_gameSession.Data.HP);
         UpdateHeroWeapon();
-        _swordsValue = _gameSession.Data.Swords;
-        if (_gameSession.Data.IsArmed && _swordsValue == 0) _swordsValue++;
+        _swordsValue = SwordCount;
+        if (_swordsValue != 0) _swordsValue++;
+        _gameSession.Data.Inventory.OnChange += OnInventoryChange;
+    }
+
+    private void OnDestroy()
+    {
+        _gameSession.Data.Inventory.OnChange -= OnInventoryChange;
     }
 
     protected override void FixedUpdate()
@@ -118,6 +127,11 @@ public class Hero : Creature
         return base.CalculateJumpVelocity(velocity);
     }
 
+    public void OnInventoryChange(string id, int value)
+    {
+        if (id == "Sword") UpdateHeroWeapon();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.IsInLayer(_groundMask))
@@ -159,7 +173,7 @@ public class Hero : Creature
     {
         base.GetDamage();
 
-        if (_gameSession.Data.Coins > 0)
+        if (CoinsCount > 0)
         {
             SpawnCoins();
         }        
@@ -180,29 +194,26 @@ public class Hero : Creature
     }
     public void Throw() 
     {
-        if (_throwCooldown.IsReady && _swordsValue > 1)
+        if (_throwCooldown.IsReady && SwordCount > 1)
         {
             Animator.SetTrigger(throwKey);
             _throwCooldown.Reset();
         }
     }
 
+    public void AddInInventory(string id, int value)
+    {
+        _gameSession.Data.Inventory.AddItem(id, value);
+    }
     public override void Attack()
     {
-        if (!_gameSession.Data.IsArmed) return;
+        if (SwordCount <= 0) return;
         base.Attack();    
-    }
-
-    public void ArmHero()
-    {
-        _gameSession.Data.IsArmed = true;
-        UpdateHeroWeapon();
-        UpdateSwords(1);
     }
 
     private void UpdateHeroWeapon()
     {
-        if (_gameSession.Data.IsArmed)
+        if (SwordCount > 0)
         {
             Animator.runtimeAnimatorController = _armedAnimatorController;
         }
@@ -215,13 +226,14 @@ public class Hero : Creature
     private void UpdateSwords(int value)
     {
         _swordsValue += value;
-        _gameSession.Data.Swords = _swordsValue;
+        //_gameSession.Data.Swords = _swordsValue;
     }
 
     public void setCoins(int coins)
     {
-        _gameSession.Data.Coins++;
-        _gameSession.Data.CoinsAmount += coins;
-        Debug.Log($"Coins: {_gameSession.Data.Coins} ({_gameSession.Data.CoinsAmount} $)");
+        _gameSession.Data.Inventory.Count("Coins");
+        //_gameSession.Data.Coins++;
+        //_gameSession.Data.CoinsAmount += coins;
+        //Debug.Log($"Coins: {_gameSession.Data.Coins}");
     }
 }

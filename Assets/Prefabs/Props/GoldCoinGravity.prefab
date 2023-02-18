@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 6878405629190618455}
   - component: {fileID: 7383767399155832561}
   - component: {fileID: 8136099914990085085}
-  - component: {fileID: 3273665327549942391}
   - component: {fileID: 6994773963845567037}
+  - component: {fileID: 2356047087014706121}
   m_Layer: 0
   m_Name: GoldCoinGravity
   m_TagString: Untagged
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -539696015
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 6582046967323461550, guid: 7155e71aa160bd84fa2855f28b924822,
     type: 3}
@@ -132,9 +132,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3273665327549942391}
-        m_MethodName: SetHeroCoins
-        m_Mode: 3
+      - m_Target: {fileID: 2356047087014706121}
+        m_MethodName: Add
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -184,6 +184,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _isParticle: 0
   _animationsClip:
   - name: Default
     loop: 1
@@ -207,18 +208,6 @@ MonoBehaviour:
     onAnimationComplete:
       m_PersistentCalls:
         m_Calls: []
---- !u!114 &3273665327549942391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7383767399155832563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f4c40c8fee225d44831b507e0752700, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &6994773963845567037
 Rigidbody2D:
   serializedVersion: 4
@@ -240,3 +229,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &2356047087014706121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7383767399155832563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c304a90f7133a5046bc0a9354af159e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Coin
+  _count: 2

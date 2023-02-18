@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5564780069080179806}
   - component: {fileID: 5564780069080179807}
   - component: {fileID: 2603153712165494766}
-  - component: {fileID: 8126288876163044749}
   - component: {fileID: 1300559426843247849}
   - component: {fileID: 3149893452068484049}
+  - component: {fileID: 4307104310824050319}
   m_Layer: 0
   m_Name: SilverCoin
   m_TagString: Untagged
@@ -130,17 +130,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
-      - m_Target: {fileID: 8126288876163044749}
-        m_MethodName: SetHeroCoins
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
@@ -148,7 +137,18 @@ MonoBehaviour:
         m_CallState: 2
   _collisionAction:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4307104310824050319}
+        m_MethodName: Add
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5564780069080179807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,18 +214,6 @@ MonoBehaviour:
     onAnimationComplete:
       m_PersistentCalls:
         m_Calls: []
---- !u!114 &8126288876163044749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5564780069080179809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f4c40c8fee225d44831b507e0752700, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1300559426843247849
 Rigidbody2D:
   serializedVersion: 4
@@ -261,3 +249,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frequency: 1
   _amplitude: 0.1
+  _randomize: 0
+--- !u!114 &4307104310824050319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5564780069080179809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c304a90f7133a5046bc0a9354af159e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Coin
+  _count: 1

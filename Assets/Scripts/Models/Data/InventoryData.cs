@@ -4,10 +4,13 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class InventoryData : MonoBehaviour
+public class InventoryData
 {
     [SerializeField] private List<InventoryItemData> _inventory = new List<InventoryItemData>();
 
+    public delegate void OnInventoryChanged(string id, int value);
+
+    public OnInventoryChanged OnChange;
     public void AddItem(string id, int value)
     {
         if (value <= 0) return;
@@ -24,6 +27,7 @@ public class InventoryData : MonoBehaviour
             
         }
         item.Value += value;
+        OnChange?.Invoke(id, Count(id));
     }
 
     public void RemoveItem(string id, int value)
@@ -37,6 +41,7 @@ public class InventoryData : MonoBehaviour
 
         item.Value -= value;
         if(item.Value <= 0) _inventory.Remove(item);
+        OnChange?.Invoke(id, Count(id));
     }
 
     private InventoryItemData GetItemData(string id)
@@ -48,6 +53,17 @@ public class InventoryData : MonoBehaviour
         return null;
     }
 
+    public int Count(string id)
+    {
+        int count = 0;
+        foreach (var item in _inventory)
+        {
+            if (item.Id == id) count += item.Value;
+        }
+        return count;
+    }
+
+    [Serializable]
     public class InventoryItemData
     {
         public string Id;

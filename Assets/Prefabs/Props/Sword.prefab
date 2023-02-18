@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 407327208386294043}
   - component: {fileID: 407327208386294037}
   - component: {fileID: 407327208386294038}
-  - component: {fileID: 407327208386294039}
   - component: {fileID: 407327208386294040}
+  - component: {fileID: 1780985064909524521}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1757924611
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 6e138eb8b09053c44be0c0f7ebb10dfc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -103,6 +103,7 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  _isParticle: 0
   _animationsClip:
   - name: 
     loop: 1
@@ -148,6 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -165,8 +169,8 @@ MonoBehaviour:
   _collisionAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 407327208386294039}
-        m_MethodName: Armed
+      - m_Target: {fileID: 1780985064909524521}
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -176,18 +180,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &407327208386294039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407327208386294044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc4558c94beebd1439b60e5627d34329, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &407327208386294040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,3 +193,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameObject: {fileID: 0}
+--- !u!114 &1780985064909524521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407327208386294044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c304a90f7133a5046bc0a9354af159e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Sword
+  _count: 1

@@ -8,11 +8,9 @@ public class PlayerData
 {
     [SerializeField] private InventoryData _inventory;
 
-    public int Coins;
-    public int CoinsAmount;
-    public int Swords;
+    public InventoryData Inventory => _inventory;
+    [Space(30)]
     public int HP;
-    public bool IsArmed;
 
     public object Clone()
     {

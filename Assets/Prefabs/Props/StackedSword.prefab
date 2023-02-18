@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 407327208386294042}
   - component: {fileID: -1340076639420342296}
   - component: {fileID: 2156497293523592437}
-  - component: {fileID: 9000774863442103645}
   - component: {fileID: 4878295288325261477}
   - component: {fileID: -7769927347593547876}
+  - component: {fileID: 9202574260011528109}
   m_Layer: 0
   m_Name: StackedSword
   m_TagString: Untagged
@@ -135,8 +135,8 @@ MonoBehaviour:
   _collisionAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9000774863442103645}
-        m_MethodName: Armed
+      - m_Target: {fileID: 9202574260011528109}
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -146,18 +146,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &9000774863442103645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407327208386294044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc4558c94beebd1439b60e5627d34329, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4878295288325261477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,3 +189,17 @@ MonoBehaviour:
     onAnimationComplete:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &9202574260011528109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407327208386294044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c304a90f7133a5046bc0a9354af159e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Sword
+  _count: 1
