@@ -62,16 +62,16 @@ public class InventoryData
         }
         return count;
     }
+}
 
-    [Serializable]
-    public class InventoryItemData
+[Serializable]
+public class InventoryItemData
+{
+    [InventoryId] public string Id;
+    public int Value;
+
+    public InventoryItemData(string id)
     {
-        [InventoryId]public string Id;
-        public int Value;
-
-        public InventoryItemData(string id)
-        {
-            Id = id;
-        }
+        Id = id;
     }
 }

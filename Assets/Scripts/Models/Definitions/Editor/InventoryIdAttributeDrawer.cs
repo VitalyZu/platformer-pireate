@@ -15,7 +15,7 @@ public class InventoryIdAttributeDrawer : PropertyDrawer
             ids.Add(item.Id);
         }
 
-        var index = ids.IndexOf(property.stringValue);
+        var index = Mathf.Max(ids.IndexOf(property.stringValue), 0);
         index = EditorGUI.Popup(position, property.displayName, index, ids.ToArray());
         property.stringValue = ids[index];
     }
