@@ -66,7 +66,7 @@ public class InventoryData
     [Serializable]
     public class InventoryItemData
     {
-        public string Id;
+        [InventoryId]public string Id;
         public int Value;
 
         public InventoryItemData(string id)
