@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4861435665855327907}
   - component: {fileID: 4861435665855327932}
   - component: {fileID: 4861435665855327933}
-  - component: {fileID: 4861435665855327934}
+  - component: {fileID: 3198645307927661873}
   m_Layer: 0
   m_Name: HealthPotion
   m_TagString: Untagged
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1735816829
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 3714227102187029162, guid: 08b893b5aad7c024ab213b11bd4af6e5,
     type: 3}
@@ -131,6 +131,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _isParticle: 0
   _animationsClip:
   - name: Default
     loop: 1
@@ -143,6 +144,9 @@ MonoBehaviour:
     - {fileID: -5249288142952506341, guid: 08b893b5aad7c024ab213b11bd4af6e5, type: 3}
     - {fileID: 1089735312403315716, guid: 08b893b5aad7c024ab213b11bd4af6e5, type: 3}
     allowNext: 0
+    onAnimationComplete:
+      m_PersistentCalls:
+        m_Calls: []
   - name: Destroy
     loop: 0
     sprites:
@@ -151,6 +155,9 @@ MonoBehaviour:
     - {fileID: 2014349484240403859, guid: 08b893b5aad7c024ab213b11bd4af6e5, type: 3}
     - {fileID: 6326803469982491369, guid: 08b893b5aad7c024ab213b11bd4af6e5, type: 3}
     allowNext: 0
+    onAnimationComplete:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!114 &4861435665855327932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,36 +184,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4861435665855327907}
-        m_MethodName: SetAnimationByName
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Destroy
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
+      m_Calls: []
   _collisionAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4861435665855327934}
-        m_MethodName: ApplyHealth
+      - m_Target: {fileID: 3198645307927661873}
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -216,7 +204,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4861435665855327934
+      - m_Target: {fileID: 4861435665855327932}
+        m_MethodName: DestroySelf
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3198645307927661873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,7 +224,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4861435665855327905}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56fe4a1cc03a8ee41b0b1621c1024672, type: 3}
+  m_Script: {fileID: 11500000, guid: c304a90f7133a5046bc0a9354af159e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dealHealth: 2
+  _id: Health_potion
+  _count: 1
