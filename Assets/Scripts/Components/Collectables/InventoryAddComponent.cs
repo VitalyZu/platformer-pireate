@@ -9,7 +9,8 @@ public class InventoryAddComponent : MonoBehaviour
 
     public void Add(GameObject go)
     {
-        var hero = go.GetComponent<Hero>();
-        if (hero != null) hero.AddInInventory(_id, _count);
+        var hero = go.GetInterface<ICanAddInInventory>();
+        hero?.AddInInventory(_id, _count);
+        //if (hero != null) hero.AddInInventory(_id, _count);
     }
 }

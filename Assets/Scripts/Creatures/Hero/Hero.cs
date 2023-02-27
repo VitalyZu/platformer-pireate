@@ -5,7 +5,7 @@ using UnityEditor.Animations;
 using Cinemachine;
 using System;
 
-public class Hero : Creature
+public class Hero : Creature, ICanAddInInventory
 {
     [SerializeField] private CinemachineVirtualCamera _cinemachineCamera;
     [Space]   
