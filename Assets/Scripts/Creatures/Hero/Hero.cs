@@ -36,9 +36,11 @@ public class Hero : Creature
     private int _swordsValue = 0;
     private CinemachineFramingTransposer camBody;
     private GameSession _gameSession;
+    private HealthComponent _healthComponent;
 
     private int CoinsCount => _gameSession.Data.Inventory.Count("Coin");
     private int SwordCount => _gameSession.Data.Inventory.Count("Sword");
+    private int HealthPotionCount => _gameSession.Data.Inventory.Count("Health_potion");
 
 
 
@@ -58,9 +60,9 @@ public class Hero : Creature
     private void Start()
     {
         _gameSession = FindObjectOfType<GameSession>();
-        var healthComponent = GetComponent<HealthComponent>();
+        _healthComponent = GetComponent<HealthComponent>();
 
-        healthComponent.SetHealth(_gameSession.Data.HP);
+        _healthComponent.SetHealth(_gameSession.Data.HP);
         UpdateHeroWeapon();
         _swordsValue = SwordCount;
         if (_swordsValue != 0) _swordsValue++;
@@ -84,8 +86,6 @@ public class Hero : Creature
         }
 
         base.FixedUpdate();
-
-        Debug.Log("Swords: " + _swordsValue);
     }
 
     protected override float CalculateYVelocity()
@@ -235,5 +235,14 @@ public class Hero : Creature
         //_gameSession.Data.Coins++;
         //_gameSession.Data.CoinsAmount += coins;
         //Debug.Log($"Coins: {_gameSession.Data.Coins}");
+    }
+
+    public void Heal()
+    {
+        if (HealthPotionCount > 0)
+        {
+            _gameSession.Data.Inventory.RemoveItem("Health_potion", 1);
+            _healthComponent.DealHealth(1);
+        }
     }
 }
