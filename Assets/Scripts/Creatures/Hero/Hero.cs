@@ -37,6 +37,7 @@ public class Hero : Creature
     private CinemachineFramingTransposer camBody;
     private GameSession _gameSession;
     private HealthComponent _healthComponent;
+    private PlaySoundsComponent _soundsComponent;
 
     private int CoinsCount => _gameSession.Data.Inventory.Count("Coin");
     private int SwordCount => _gameSession.Data.Inventory.Count("Sword");
@@ -54,6 +55,7 @@ public class Hero : Creature
         //Debug.Log(_groundMask | (1 << gameObject.layer));
         camBody = _cinemachineCamera.GetCinemachineComponent<CinemachineFramingTransposer>(); 
         _sprite = GetComponent<SpriteRenderer>();
+        _soundsComponent = GetComponent<PlaySoundsComponent>();
         
     }
 
@@ -107,8 +109,7 @@ public class Hero : Creature
             velocity = _jumpSpeed;
             _allowDoubleJump = false;
             _wasDoubleJump = true;
-            _particles.Spawn("Jump");
-            
+            DoJumpVFX();
 
             return velocity;
         }
@@ -118,7 +119,7 @@ public class Hero : Creature
             velocity = _jumpSpeed;
             _wasDoubleJump = true;
             IsFalling = false;
-            _particles.Spawn("Jump");
+            DoJumpVFX();
 
             return velocity;
             
@@ -188,6 +189,7 @@ public class Hero : Creature
     {
         _particles.Spawn("Throw");
         UpdateSwords(-1);
+        _soundsComponent.Play("Range");
         //_gameSession.Data.IsArmed = false;
         //UpdateHeroWeapon();
 

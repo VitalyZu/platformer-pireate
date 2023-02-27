@@ -23,7 +23,8 @@ public class Creature : MonoBehaviour
     protected Rigidbody2D Rigidbody;
     protected Vector2 Direction;
     protected bool IsGrounded;
-    protected Animator Animator;    
+    protected Animator Animator;
+    protected PlaySoundsComponent Sounds;
     protected bool IsJumping;
     protected bool IsFalling;
 
@@ -39,6 +40,7 @@ public class Creature : MonoBehaviour
     {
         Rigidbody = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
+        Sounds = GetComponent<PlaySoundsComponent>();
     }
 
     private void Update()
@@ -119,11 +121,17 @@ public class Creature : MonoBehaviour
         if (IsGrounded)
         {
             velocity += _jumpSpeed;
-            _particles.Spawn("Jump");
+            DoJumpVFX();
             IsFalling = false;
         }
 
         return velocity;
+    }
+
+    protected void DoJumpVFX()
+    {
+        _particles.Spawn("Jump");
+        Sounds.Play("Jump");
     }
 
     public virtual void GetDamage()
@@ -142,6 +150,7 @@ public class Creature : MonoBehaviour
     public virtual void Attack()
     {
         Animator.SetTrigger(attackKey);
+        Sounds.Play("Melee");
     }
 
     //Event trigger
