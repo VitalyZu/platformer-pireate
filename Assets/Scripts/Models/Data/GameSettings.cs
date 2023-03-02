@@ -5,8 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Data/GameSettings", fileName = "GameSettings")]
 public class GameSettings : ScriptableObject
 {
-    [SerializeField] private FloatPersistentProperty Music;
-    [SerializeField] private FloatPersistentProperty Sfx;
+    [SerializeField] private FloatPersistentProperty _music;
+    [SerializeField] private FloatPersistentProperty _sfx;
+
+    public FloatPersistentProperty Music => _music;
+    public FloatPersistentProperty Sfx => _sfx;
 
     //Singleton
     private static GameSettings _instance;
@@ -19,15 +22,15 @@ public class GameSettings : ScriptableObject
     private void OnEnable() 
     {
         //Обращаться нужно в OnEnable, т к в констукторе не даст обратиться к PlayerPrefs
-        Music = new FloatPersistentProperty(1, SoundSetting.Music.ToString());
-        Sfx = new FloatPersistentProperty(1, SoundSetting.SFX.ToString());
+        _music = new FloatPersistentProperty(1, SoundSetting.Music.ToString());
+        _sfx = new FloatPersistentProperty(1, SoundSetting.SFX.ToString());
 
     }
 
     private void OnValidate()
     {
-        Music.Validate();
-        Sfx.Validate();
+        _music.Validate();
+        _sfx.Validate();
     }
 
 }

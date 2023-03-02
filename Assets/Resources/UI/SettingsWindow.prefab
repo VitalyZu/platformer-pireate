@@ -245,8 +245,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2765837910387654717}
+  - component: {fileID: 7742574187698073764}
   m_Layer: 5
-  m_Name: SFXItem
+  m_Name: SFXOptions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,6 +275,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 29.384308}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7742574187698073764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3194294009294465092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7e144c4c9fbc841815cd22137d4382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 5859092327781642462}
+  _value: {fileID: 1432799374817249139}
 --- !u!1 &3936762446405730578
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,6 +541,7 @@ GameObject:
   - component: {fileID: 3944129328369925353}
   - component: {fileID: 3944129328369925355}
   - component: {fileID: 3944129328369925354}
+  - component: {fileID: 8327587443632294414}
   m_Layer: 5
   m_Name: SettingsWindow
   m_TagString: Untagged
@@ -542,7 +558,7 @@ RectTransform:
   m_GameObject: {fileID: 3944129328369925352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.23788603, y: 0.23788603, z: 0.23788603}
+  m_LocalScale: {x: 1, y: 1, z: 0.10455056}
   m_Children:
   - {fileID: 3944129327857115065}
   m_Father: {fileID: 0}
@@ -584,6 +600,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bec16d74d260274c880cfa59a1d107c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8327587443632294414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3944129328369925352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0511a2025397b85488445cedb8899d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _music: {fileID: 4141085030821888492}
+  _sfx: {fileID: 7742574187698073764}
 --- !u!1 &3944129328484379421
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +626,7 @@ GameObject:
   - component: {fileID: 3944129328484379417}
   - component: {fileID: 3944129328484379416}
   - component: {fileID: 3944129328484379423}
+  - component: {fileID: 8866018012239212019}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -718,6 +749,19 @@ MonoBehaviour:
         m_CallState: 2
   _normal: {fileID: 3944129328795228678}
   _selected: {fileID: 3944129327640939924}
+--- !u!114 &8866018012239212019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3944129328484379421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661ae7bf36ad825438c591981bd05bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clip: {fileID: 8300000, guid: 646314b6866848a47b24871c866b861a, type: 3}
 --- !u!1 &3944129328544387888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,8 +1423,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6622520628611145951}
+  - component: {fileID: 4141085030821888492}
   m_Layer: 5
-  m_Name: ValumeItem
+  m_Name: MusicOptions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1408,6 +1453,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 29.384308}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4141085030821888492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8259355047926417326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7e144c4c9fbc841815cd22137d4382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 1431976088503801943}
+  _value: {fileID: 8290066364054808554}
 --- !u!1 &8304901486551156732
 GameObject:
   m_ObjectHideFlags: 0

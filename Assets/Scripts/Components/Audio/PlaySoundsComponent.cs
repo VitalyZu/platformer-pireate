@@ -5,15 +5,18 @@ using System;
 
 public class PlaySoundsComponent : MonoBehaviour
 {
-    [SerializeField] private AudioSource _source;
     [SerializeField] private AudioData[] _sounds;
+    private AudioSource _source;
 
     public void Play(string id)
     {
         foreach (var data in _sounds)
         {
             if (data.Id != id) continue;
-            
+
+            if (_source == null)
+                _source = GameObject.FindWithTag("SFXAudioSource").GetComponent<AudioSource>();
+
             _source.PlayOneShot(data.Clip);
             break;
             

@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SettingsWindow : MonoBehaviour
+public class SettingsWindow : AnimatedWindow
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private AudioSettingsWidget _music;
+    [SerializeField] private AudioSettingsWidget _sfx;
 
-    // Update is called once per frame
-    void Update()
+    protected override void Start()
     {
-        
+        base.Start();
+
+        _music.SetModel(GameSettings.I.Music);
+        _sfx.SetModel(GameSettings.I.Sfx);
     }
 }
