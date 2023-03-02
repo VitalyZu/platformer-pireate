@@ -6,8 +6,8 @@ using System;
 [Serializable]
 public abstract class PersistentProperty<TPropertyType>
 {
-    [SerializeField] private TPropertyType _value;  //Для инспектроа
-    private TPropertyType _stored;  //Значение записаное на диске
+    [SerializeField] protected TPropertyType _value;  //Для инспектроа
+    protected TPropertyType _stored;  //Значение записаное на диске
 
     private TPropertyType _defaultValue;
 

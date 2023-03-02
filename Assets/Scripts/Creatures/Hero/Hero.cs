@@ -64,7 +64,7 @@ public class Hero : Creature, ICanAddInInventory
         _gameSession = FindObjectOfType<GameSession>();
         _healthComponent = GetComponent<HealthComponent>();
 
-        _healthComponent.SetHealth(_gameSession.Data.HP);
+        _healthComponent.SetHealth(_gameSession.Data.HP.Value);
         UpdateHeroWeapon();
         _swordsValue = SwordCount;
         if (_swordsValue != 0) _swordsValue++;
@@ -167,7 +167,7 @@ public class Hero : Creature, ICanAddInInventory
 
     public void OnHealthChanged(int currentHealth)
     {
-        _gameSession.Data.HP = currentHealth;
+        _gameSession.Data.HP.Value = currentHealth;
     }
 
     public override void GetDamage()
