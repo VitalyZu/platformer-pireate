@@ -241,7 +241,7 @@ public class Hero : Creature, ICanAddInInventory
 
     public void Heal()
     {
-        if (HealthPotionCount > 0)
+        if (HealthPotionCount > 0 && _gameSession.Data.HP.Value < DefsFacade.I.Player.MaxHealth)
         {
             _gameSession.Data.Inventory.RemoveItem("Health_potion", 1);
             _healthComponent.DealHealth(1);
