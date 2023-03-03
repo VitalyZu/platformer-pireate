@@ -9,8 +9,8 @@ public class ExitLevelComponent : MonoBehaviour
     public void Exit()
     {
         GameSession session = FindObjectOfType<GameSession>();
-        session.initPlayerData = (PlayerData)session.Data.Clone();
-
+        //session.initPlayerData = (PlayerData)session.Data.Clone();
+        session.Save();
         SceneManager.LoadScene(_sceneName);
     }
 }

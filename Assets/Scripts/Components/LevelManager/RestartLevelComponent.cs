@@ -8,9 +8,9 @@ public class RestartLevelComponent : MonoBehaviour
     public void RestartLevel()
     {
         GameSession session = FindObjectOfType<GameSession>();
-        session.Data = session.initPlayerData;
-        session.initPlayerData = (PlayerData)session.Data.Clone();
-
+        //session.Data = session.initPlayerData;
+        //session.initPlayerData = (PlayerData)session.Data.Clone();
+        session.LoadLastSave();
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }

@@ -13,9 +13,14 @@ public class PlayerData
 
     public IntProperty HP = new IntProperty();
 
-    public object Clone()
+    //public object Clone()
+    //{
+    //    return this.MemberwiseClone();
+    //}
+    public PlayerData Clone()
     {
-        return this.MemberwiseClone();
+        var json = JsonUtility.ToJson(this);
+        return JsonUtility.FromJson<PlayerData>(json);
     }
 }
     
