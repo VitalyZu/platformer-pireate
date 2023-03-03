@@ -14,6 +14,12 @@ public abstract class PersistentProperty<TPropertyType>
     public delegate void OnPropertyChanged(TPropertyType newValue, TPropertyType oldValue);
     public event OnPropertyChanged onChanged;
 
+    public IDisposable Subscribe(OnPropertyChanged call)
+    {
+        onChanged += call;
+        return new ActionDisposable(()=>onChanged-=call);
+    }
+
     public PersistentProperty(TPropertyType defualtValue)
     {
         _defaultValue = defualtValue;
