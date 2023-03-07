@@ -15,6 +15,8 @@ public class GameSession : MonoBehaviour
         set { _playerData = value; }
     }
 
+    public QuickInventoryModel QuickInventory { get; private set; }
+
     private void Awake()
     {       
         if (IsSessionExist())
@@ -27,7 +29,13 @@ public class GameSession : MonoBehaviour
             //initPlayerData = (PlayerData)_playerData.Clone();
         }
         Save();
+        InitModels();
         LoadHUD();
+    }
+
+    private void InitModels()
+    { 
+        QuickInventory = new QuickInventoryModel(Data);
     }
 
     private void LoadHUD()

@@ -10,6 +10,19 @@ public class ObservableProperty<TPropertyType>
 
     public delegate void OnPropertyChanged(TPropertyType newValue, TPropertyType oldValue);
     public event OnPropertyChanged onChanged;
+
+    public IDisposable Subscribe(OnPropertyChanged call)
+    {
+        onChanged += call;
+        return new ActionDisposable(() => onChanged -= call);
+    }
+    public IDisposable SubscribeAndInvoke(OnPropertyChanged call)
+    {
+        onChanged += call;
+        var dispose = new ActionDisposable(() => onChanged -= call);
+        call(_value, _value);
+        return dispose;
+    }
     public TPropertyType Value 
     {
         get => _value;
@@ -18,7 +31,12 @@ public class ObservableProperty<TPropertyType>
             if (isEqual) return;
             var oldValue = _value;
             _value = value;
-            onChanged?.Invoke(_value, oldValue);
+            InvokeChangedEvent(_value, oldValue);
         }
+    }
+
+    protected void InvokeChangedEvent(TPropertyType newValue, TPropertyType oldValue)
+    {
+        onChanged?.Invoke(newValue, oldValue);
     }
 }

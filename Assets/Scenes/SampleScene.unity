@@ -1901,7 +1901,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerData:
     _inventory:
-      _inventory: []
+      _inventory:
+      - Id: Coin
+        Value: 2
+      - Id: Sword
+        Value: 3
+      - Id: Key
+        Value: 4
+      - Id: Health_potion
+        Value: 4
     HP:
       _value: 10
 --- !u!4 &349975113

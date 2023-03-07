@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,9 +9,21 @@ public class InventoryItemWidget : MonoBehaviour
     [SerializeField] private Image _icon;
     [SerializeField] private GameObject _selected;
     [SerializeField] private Text _value;
-    
+
+    private GameSession _session;
     private int _index;
     private readonly CompositeDisposable _trash = new CompositeDisposable();
+
+    private void Start()
+    {
+        _session = FindObjectOfType<GameSession>();
+        _session.QuickInventory.SelectedIndex.SubscribeAndInvoke(OnIndexChanged);
+    }
+
+    private void OnIndexChanged(int newValue, int oldValue)
+    {
+        _selected.SetActive(_index == newValue);
+    }
 
     public void SetData(InventoryItemData item, int index)
     {
