@@ -62,6 +62,11 @@ public class InventoryData
         }
         return count;
     }
+
+    public InventoryItemData[] GetAll()
+    {
+        return _inventory.ToArray();
+    }
 }
 
 [Serializable]

@@ -23,8 +23,10 @@ public class InventoryItemsDef : ScriptableObject
     public struct ItemDef 
     {
         [SerializeField] private string _id;
+        [SerializeField] private Sprite _icon;
 
         public string Id => _id;
         public bool IsVoid => string.IsNullOrEmpty(_id);
+        public Sprite Icon => _icon;
     }
 }
