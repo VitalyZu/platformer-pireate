@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 [Serializable]
 public class InventoryData
@@ -63,9 +64,17 @@ public class InventoryData
         return count;
     }
 
-    public InventoryItemData[] GetAll()
+    public InventoryItemData[] GetAll(params ItemTag[] tags)
     {
-        return _inventory.ToArray();
+        var retVal = new List<InventoryItemData>();
+        foreach (var item in _inventory)
+        {
+            var defs = DefsFacade.I.Items.Get(item.Id);
+            bool HasAllTags = tags.All(x => defs.HasTag(x));
+            if (HasAllTags) retVal.Add(item);
+        }
+
+        return retVal.ToArray();
     }
 }
 

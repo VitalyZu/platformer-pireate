@@ -30,6 +30,7 @@ public class Hero : Creature, ICanAddInInventory
     private SpriteRenderer _sprite;
     private bool _isArmed;      
     private bool _allowDoubleJump;
+
     private bool _wasDoubleJump = false;
     private int _coinsAmount = 0;
     private int _coinsValue = 0;
@@ -199,6 +200,7 @@ public class Hero : Creature, ICanAddInInventory
         if (_throwCooldown.IsReady && SwordCount > 1)
         {
             Animator.SetTrigger(throwKey);
+            _gameSession.Data.Inventory.RemoveItem("Sword", 1);
             _throwCooldown.Reset();
         }
     }
@@ -246,5 +248,10 @@ public class Hero : Creature, ICanAddInInventory
             _gameSession.Data.Inventory.RemoveItem("Health_potion", 1);
             _healthComponent.DealHealth(1);
         }
+    }
+
+    public void NextItem()
+    {
+        _gameSession.QuickInventory.SetNextItem();
     }
 }

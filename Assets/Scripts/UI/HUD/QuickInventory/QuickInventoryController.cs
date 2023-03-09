@@ -9,7 +9,7 @@ public class QuickInventoryController : MonoBehaviour
     [SerializeField] private InventoryItemWidget _prefab;
 
     private GameSession _session;
-    private InventoryItemData[] _inventory;
+    //private InventoryItemData[] _inventory;
     private List<InventoryItemWidget> _createdItems = new List<InventoryItemWidget>();
 
     private readonly CompositeDisposable _trash = new CompositeDisposable();
@@ -23,24 +23,25 @@ public class QuickInventoryController : MonoBehaviour
 
     private void Rebuild()
     {
-        _inventory = _session.Data.Inventory.GetAll();
+        var inventory = _session.QuickInventory.Inventory;
+        _trash.Retain(_session.QuickInventory.Subscribe(Rebuild));
 
         //create required items
-        for (int i = _createdItems.Count; i < _inventory.Length; i++)
+        for (int i = _createdItems.Count; i < inventory.Length; i++)
         {
             var item = Instantiate(_prefab, _container);
             _createdItems.Add(item);
         }
 
         //update data and activate
-        for (int i = 0; i < _inventory.Length; i++)
+        for (int i = 0; i < inventory.Length; i++)
         {
-            _createdItems[i].SetData(_inventory[i], i);
+            _createdItems[i].SetData(inventory[i], i);
             _createdItems[i].gameObject.SetActive(true);
         }
 
         //hide unused items
-        for (int i = _inventory.Length; i < _createdItems.Count; i++)
+        for (int i = inventory.Length; i < _createdItems.Count; i++)
         {
             _createdItems[i].gameObject.SetActive(false);
         }

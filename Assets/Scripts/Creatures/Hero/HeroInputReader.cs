@@ -43,4 +43,11 @@ public class HeroInputReader : MonoBehaviour
             _hero.Heal();
         }
     }
+    public void OnNextItem(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _hero.NextItem();
+        }
+    }
 }

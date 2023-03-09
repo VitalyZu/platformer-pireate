@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 [CreateAssetMenu(menuName = "Defs/InventoryItem", fileName = "InventoryItem")]
 public class InventoryItemsDef : ScriptableObject
@@ -24,9 +25,15 @@ public class InventoryItemsDef : ScriptableObject
     {
         [SerializeField] private string _id;
         [SerializeField] private Sprite _icon;
+        [SerializeField] private ItemTag[] _tags;
 
         public string Id => _id;
         public bool IsVoid => string.IsNullOrEmpty(_id);
         public Sprite Icon => _icon;
+
+        public bool HasTag(ItemTag tag)
+        {
+            return _tags.Contains(tag); //LINQ
+        }
     }
 }

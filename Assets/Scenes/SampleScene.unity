@@ -1911,7 +1911,7 @@ MonoBehaviour:
       - Id: Health_potion
         Value: 4
     HP:
-      _value: 10
+      _value: 5
 --- !u!4 &349975113
 Transform:
   m_ObjectHideFlags: 0
