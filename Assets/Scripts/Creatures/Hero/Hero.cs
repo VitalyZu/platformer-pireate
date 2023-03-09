@@ -47,6 +47,7 @@ public class Hero : Creature, ICanAddInInventory
     private int HealthPotionCount => _gameSession.Data.Inventory.Count("Health_potion");
 
     private string SelectedItemId => _gameSession.QuickInventory.SelectedItem.Id;
+
     private bool CanThrow
     {
         get {

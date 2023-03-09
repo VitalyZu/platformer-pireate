@@ -20151,9 +20151,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
         type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
+        type: 3}
       propertyPath: _onSucces.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1244813553330240942}
     - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
         type: 3}
       propertyPath: _onSucces.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -20164,6 +20179,16 @@ PrefabInstance:
       propertyPath: _onSucces.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1244813553330240939}
+    - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Show
+      objectReference: {fileID: 0}
     - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
         type: 3}
       propertyPath: _onSucces.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -20178,6 +20203,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _onSucces.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: open
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
         type: 3}
@@ -20229,6 +20259,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c53a04b74da25114ebe115aec744dbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1244813553330240942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244813553330240935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541c9e82013a1364a8b26f1381292a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 0
+  _bound:
+    _sentences:
+    - Need a key
+    - Ha-ha-ha
+  _external: {fileID: 0}
 --- !u!1001 &1369260263825761227
 PrefabInstance:
   m_ObjectHideFlags: 0
