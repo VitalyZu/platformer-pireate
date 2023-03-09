@@ -17,7 +17,8 @@ public class InventoryItemWidget : MonoBehaviour
     private void Start()
     {
         _session = FindObjectOfType<GameSession>();
-        _session.QuickInventory.SelectedIndex.SubscribeAndInvoke(OnIndexChanged);
+        var index = _session.QuickInventory.SelectedIndex;
+        _trash.Retain(index.SubscribeAndInvoke(OnIndexChanged));
     }
 
     private void OnIndexChanged(int newValue, int oldValue)
@@ -31,5 +32,10 @@ public class InventoryItemWidget : MonoBehaviour
         var def = DefsFacade.I.Items.Get(item.Id);
         _icon.sprite = def.Icon;
         _value.text = item.Value.ToString();
+    }
+
+    private void OnDestroy()
+    {
+        _trash.Dispose();
     }
 }

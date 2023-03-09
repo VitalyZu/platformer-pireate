@@ -9,6 +9,7 @@ public class GameSession : MonoBehaviour
     //public PlayerData initPlayerData;
     private PlayerData _save;
     //public PlayerData Data => _playerData;
+    private readonly CompositeDisposable _trash = new CompositeDisposable();
     public PlayerData Data 
     {
         get { return _playerData; }
@@ -36,6 +37,7 @@ public class GameSession : MonoBehaviour
     private void InitModels()
     { 
         QuickInventory = new QuickInventoryModel(Data);
+        _trash.Retain(QuickInventory);
     }
 
     private void LoadHUD()
@@ -64,5 +66,10 @@ public class GameSession : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private void OnDestroy()
+    {
+        _trash.Dispose();
     }
 }
