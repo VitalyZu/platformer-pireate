@@ -20162,7 +20162,7 @@ PrefabInstance:
     - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
         type: 3}
       propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
         type: 3}
@@ -20201,13 +20201,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
         type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: e7cc3495b04159b48b12839ce0037769,
+        type: 2}
+    - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
+        type: 3}
       propertyPath: _onSucces.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: open
       objectReference: {fileID: 0}
     - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
         type: 3}
       propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: DialogDef, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
         type: 3}
@@ -20271,7 +20277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 541c9e82013a1364a8b26f1381292a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mode: 0
+  _mode: 1
   _bound:
     _sentences:
     - Need a key
