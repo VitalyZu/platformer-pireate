@@ -9,6 +9,7 @@ public class QuickInventoryModel
     public InventoryItemData[] Inventory { get; private set; }
     public readonly IntProperty SelectedIndex = new IntProperty();
     public event Action OnChanged;
+    public InventoryItemData SelectedItem => Inventory[SelectedIndex.Value];
     public QuickInventoryModel(PlayerData data)
     {
         _data = data;

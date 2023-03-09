@@ -1905,11 +1905,13 @@ MonoBehaviour:
       - Id: Coin
         Value: 2
       - Id: Sword
-        Value: 3
+        Value: 0
       - Id: Key
         Value: 4
       - Id: Health_potion
         Value: 4
+      - Id: Pearl_projectile
+        Value: 10
     HP:
       _value: 5
 --- !u!4 &349975113
@@ -20510,11 +20512,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4462260607072440720, guid: da74025086ae9ee4192dc15f0340ad90,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 90b3cb1172e1c8e488451a5b5b86661b, type: 2}
     - target: {fileID: 4462260607072440721, guid: da74025086ae9ee4192dc15f0340ad90,
         type: 3}
       propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target

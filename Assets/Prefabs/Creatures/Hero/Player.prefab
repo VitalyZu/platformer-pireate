@@ -699,6 +699,7 @@ MonoBehaviour:
   _hitParticle: {fileID: 4462260607914174307}
   _throwCooldown:
     _value: 2
+  _throwSpawner: {fileID: 4875453717319267220}
 --- !u!114 &4462260607072440811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,7 +760,7 @@ Animator:
   m_GameObject: {fileID: 4462260607072440808}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e1f67ad832597ae49ae53efd6c95b720, type: 2}
+  m_Controller: {fileID: 9100000, guid: 90b3cb1172e1c8e488451a5b5b86661b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

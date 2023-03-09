@@ -23,6 +23,7 @@ public class Hero : Creature, ICanAddInInventory
     [Header("Particles")]
     [SerializeField] private ParticleSystem _hitParticle;
     [SerializeField] private Cooldown _throwCooldown;
+    [SerializeField] private SpawnComponent _throwSpawner;
 
     private static readonly int throwKey = Animator.StringToHash("throw");
 
@@ -40,10 +41,24 @@ public class Hero : Creature, ICanAddInInventory
     private HealthComponent _healthComponent;
     private PlaySoundsComponent _soundsComponent;
 
+    private const string SwordId = "Sword";
     private int CoinsCount => _gameSession.Data.Inventory.Count("Coin");
-    private int SwordCount => _gameSession.Data.Inventory.Count("Sword");
+    private int SwordCount => _gameSession.Data.Inventory.Count(SwordId);
     private int HealthPotionCount => _gameSession.Data.Inventory.Count("Health_potion");
 
+    private string SelectedItemId => _gameSession.QuickInventory.SelectedItem.Id;
+    private bool CanThrow
+    {
+        get {
+            if (SelectedItemId == SwordId)
+            {
+                return SwordCount > 1;
+            }
+
+            var def = DefsFacade.I.Items.Get(SelectedItemId);
+            return def.HasTag(ItemTag.Throwable);
+        }
+    }
 
 
     override protected void Awake()
@@ -131,7 +146,7 @@ public class Hero : Creature, ICanAddInInventory
 
     public void OnInventoryChange(string id, int value)
     {
-        if (id == "Sword") UpdateHeroWeapon();
+        if (id == SwordId) UpdateHeroWeapon();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -188,19 +203,25 @@ public class Hero : Creature, ICanAddInInventory
 
     public void OnDoThrow()
     {
-        _particles.Spawn("Throw");
+        //_particles.Spawn("Throw");
+        
+        var throwableId = _gameSession.QuickInventory.SelectedItem.Id;
+        var throwableDef = DefsFacade.I.Throwable.Get(throwableId);
+        _throwSpawner.SetPrefab(throwableDef.Projectile);
+        _throwSpawner.Spawn();
         UpdateSwords(-1);
         _soundsComponent.Play("Range");
+        _gameSession.Data.Inventory.RemoveItem(throwableId, 1);
         //_gameSession.Data.IsArmed = false;
         //UpdateHeroWeapon();
 
     }
     public void Throw() 
     {
-        if (_throwCooldown.IsReady && SwordCount > 1)
+        if (_throwCooldown.IsReady && CanThrow)
         {
             Animator.SetTrigger(throwKey);
-            _gameSession.Data.Inventory.RemoveItem("Sword", 1);
+            //_gameSession.Data.Inventory.RemoveItem("Sword", 1);
             _throwCooldown.Reset();
         }
     }
