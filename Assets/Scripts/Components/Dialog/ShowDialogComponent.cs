@@ -18,6 +18,12 @@ public class ShowDialogComponent : MonoBehaviour
         _dialogBox.ShowDialog(Data);
     }
 
+    public void Show(DialogDef def)
+    {
+        _external = def;
+        Show();
+    }
+
     private DialogData Data 
     {
         get {
