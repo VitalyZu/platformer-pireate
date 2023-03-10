@@ -25,6 +25,16 @@ public class LocaleDef : ScriptableObject
         _request.SendWebRequest().completed += OnDataLoaded;
     }
 
+    public Dictionary<string, string> GetData()
+    {
+        var dictionary = new Dictionary<string, string>();
+        foreach (var locale in _localeItems)
+        {
+            dictionary.Add(locale.Key, locale.Value);
+        }
+        return dictionary;
+    }
+
     private void OnDataLoaded(AsyncOperation obj)
     {
         if (obj.isDone)
