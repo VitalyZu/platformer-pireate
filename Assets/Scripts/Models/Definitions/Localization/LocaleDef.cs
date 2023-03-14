@@ -22,7 +22,7 @@ public class LocaleDef : ScriptableObject
         if (_request != null) return;
 
         _request = UnityWebRequest.Get(_url);
-        _request.SendWebRequest().completed += OnDataLoaded;
+        _request.SendWebRequest().completed += OnDataLoaded; //не обязательно отписываться, т к callbacks заnullлятся
     }
 
     public Dictionary<string, string> GetData()
@@ -40,7 +40,7 @@ public class LocaleDef : ScriptableObject
         if (obj.isDone)
         {
             var rows = _request.downloadHandler.text.Split('\n');
-
+            _localeItems.Clear();
             foreach (var row in rows)
             {
                 AddLocaleItem(row);

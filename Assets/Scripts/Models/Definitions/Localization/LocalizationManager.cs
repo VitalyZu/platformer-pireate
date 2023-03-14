@@ -26,6 +26,7 @@ public class LocalizationManager : MonoBehaviour
     {
         var def = Resources.Load<LocaleDef>($"Locales/{localeToLoad}");
         _localization = def.GetData();
+        _localeKey.Value = localeToLoad;
         OnLocaleChanged?.Invoke();
     }
 

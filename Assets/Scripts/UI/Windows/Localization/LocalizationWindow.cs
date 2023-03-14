@@ -29,7 +29,7 @@ public class LocalizationWindow : AnimatedWindow
         return data;
     }
 
-    private void OnSelected(string selectedLocale)
+    public void OnSelected(string selectedLocale)
     {
         LocalizationManager.I.SetLocale(selectedLocale);
     }

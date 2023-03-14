@@ -16,6 +16,13 @@ public class MainMenuWindow : AnimatedWindow
         Instantiate(window, canvas.transform);
     }
 
+    public void OnLanguagse()
+    {
+        var window = Resources.Load("UI/Localization");
+        var canvas = FindObjectOfType<Canvas>();
+        Instantiate(window, canvas.transform);
+    }
+
     public void OnStartGame()
     {
         _closeAction = () =>
