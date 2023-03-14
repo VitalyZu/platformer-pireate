@@ -10,6 +10,8 @@ public class LocalizationManager : MonoBehaviour
     private StringPersistentProperty _localeKey = new StringPersistentProperty("en", "localization/current");
     private Dictionary<string, string> _localization;
 
+    public string LocaleKey => _localeKey.Value;
+
     public event Action OnLocaleChanged;
     static LocalizationManager()
     {
@@ -34,5 +36,10 @@ public class LocalizationManager : MonoBehaviour
             return value;
         }
         return $"%%%{key}%%%";
+    }
+
+    public void SetLocale(string selectedLocale)
+    {
+        LoadLocale(selectedLocale);
     }
 }
