@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,7 @@ public class GameSession : MonoBehaviour
     //public PlayerData initPlayerData;
     private PlayerData _save;
     //public PlayerData Data => _playerData;
+    private List<string> _checkPoints = new List<string>;
     private readonly CompositeDisposable _trash = new CompositeDisposable();
     public PlayerData Data 
     {
@@ -67,6 +69,18 @@ public class GameSession : MonoBehaviour
         }
         return false;
     }
+    //Check Points
+    public bool IsChecked(string id)
+    {
+        return _checkPoints.Contains(id);
+    }
+
+    public void SetChecked(string id)
+    {
+        if (!_checkPoints.Contains(id))
+            _checkPoints.Add(id);
+    }
+
 
     private void OnDestroy()
     {

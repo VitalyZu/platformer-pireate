@@ -1879,6 +1879,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 338181052}
+  - component: {fileID: 338181053}
   m_Layer: 0
   m_Name: CheckPoint
   m_TagString: Untagged
@@ -1902,6 +1903,18 @@ Transform:
   m_Father: {fileID: 1241737875}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &338181053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338181051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30e0844146968254aa36ad1039e927c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &349975111
 GameObject:
   m_ObjectHideFlags: 0
@@ -5868,6 +5881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 541307203}
   - component: {fileID: 541307204}
+  - component: {fileID: 541307205}
   m_Layer: 0
   m_Name: flag
   m_TagString: Untagged
@@ -5939,6 +5953,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &541307205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541307202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cdf1c63105e9944a83cbaa72233e46f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startName: unchecked
+  _frameRate: 10
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  _isParticle: 0
+  _animationsClip:
+  - name: unchecked
+    loop: 1
+    sprites:
+    - {fileID: 21300000, guid: 76a3297c7e9ca1c409ca3294d166c1eb, type: 3}
+    - {fileID: 21300000, guid: a83160be644ac0c458381cf2c938a46f, type: 3}
+    - {fileID: 21300000, guid: 0da01158dc0d48d4eaf8956cd4a751e6, type: 3}
+    - {fileID: 21300000, guid: eaf88b246a462404cb9de290065c430a, type: 3}
+    - {fileID: 21300000, guid: 1b76dc5a7cd7040489324eb1f38ef5ea, type: 3}
+    - {fileID: 21300000, guid: 390a7c40e05cfd24b8bef529f93e4509, type: 3}
+    - {fileID: 21300000, guid: a3e6e15a16b38be469be2fe8908c7c59, type: 3}
+    - {fileID: 21300000, guid: 137089e8da9c3c947a9339332df4875d, type: 3}
+    allowNext: 0
+    onAnimationComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: transition
+    loop: 0
+    sprites:
+    - {fileID: 21300000, guid: 929d738a78cdf5641901547c87ebf268, type: 3}
+    - {fileID: 21300000, guid: f968aa020feebe04fb60cc718d79d855, type: 3}
+    - {fileID: 21300000, guid: 8fbf937414dbe6e439bcf4988e9aad6d, type: 3}
+    allowNext: 0
+    onAnimationComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: checked
+    loop: 1
+    sprites:
+    - {fileID: 21300000, guid: d3e168059c745f547afd02532137b2d3, type: 3}
+    - {fileID: 21300000, guid: 7f6aa8af0c849c841afb8cc0c27b8678, type: 3}
+    - {fileID: 21300000, guid: 7e236ff2ce5dc4045ae99b30640f43d6, type: 3}
+    - {fileID: 21300000, guid: 3d09f361ce6465b4caa5b33274cbcaff, type: 3}
+    allowNext: 0
+    onAnimationComplete:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &545609030
 GameObject:
   m_ObjectHideFlags: 0
