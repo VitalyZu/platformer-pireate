@@ -7,7 +7,8 @@ using System;
 
 public class Hero : Creature, ICanAddInInventory
 {
-    [SerializeField] private CinemachineVirtualCamera _cinemachineCamera;
+    //[SerializeField] private CinemachineVirtualCamera _cinemachineCamera;
+    private CinemachineVirtualCamera _cinemachineCamera;
     [Space]   
     [SerializeField] private float _slamDownVelocity;
     [Space]
@@ -70,7 +71,7 @@ public class Hero : Creature, ICanAddInInventory
         //Debug.Log(_groundMask.value);
         //Debug.Log(1 << gameObject.layer);
         //Debug.Log(_groundMask | (1 << gameObject.layer));
-        camBody = _cinemachineCamera.GetCinemachineComponent<CinemachineFramingTransposer>(); 
+        
         _sprite = GetComponent<SpriteRenderer>();
         _soundsComponent = GetComponent<PlaySoundsComponent>();
         
@@ -78,6 +79,7 @@ public class Hero : Creature, ICanAddInInventory
 
     private void Start()
     {
+        _cinemachineCamera = FindObjectOfType<CinemachineVirtualCamera>();
         _gameSession = FindObjectOfType<GameSession>();
         _healthComponent = GetComponent<HealthComponent>();
 
@@ -86,6 +88,7 @@ public class Hero : Creature, ICanAddInInventory
         _swordsValue = SwordCount;
         if (_swordsValue != 0) _swordsValue++;
         _gameSession.Data.Inventory.OnChange += OnInventoryChange;
+        camBody = _cinemachineCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
     }
 
     private void OnDestroy()

@@ -459,6 +459,7 @@ GameObject:
   - component: {fileID: 4462260607072440722}
   - component: {fileID: 8807265228025670495}
   - component: {fileID: 2928511384406936264}
+  - component: {fileID: 4742782846218420089}
   m_Layer: 14
   m_Name: Player
   m_TagString: Player
@@ -689,7 +690,6 @@ MonoBehaviour:
   _layerCheck: {fileID: 4462260606720355348}
   _attackOverlap: {fileID: 4462260606489225120}
   _particles: {fileID: 8807265228025670495}
-  _cinemachineCamera: {fileID: 0}
   _slamDownVelocity: 15
   _armedAnimatorController: {fileID: 9100000, guid: e1f67ad832597ae49ae53efd6c95b720,
     type: 2}
@@ -813,7 +813,7 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4742782846218420089}
         m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
@@ -906,6 +906,18 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: cea88fefa670b744bb3257a305c3f406, type: 3}
   - _id: HIt
     _clip: {fileID: 8300000, guid: 2b7a4c28181fbc449bb15f9263c5a348, type: 3}
+--- !u!114 &4742782846218420089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4462260607072440808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e6b062fe133e5498cc502547357320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4462260607914174304
 GameObject:
   m_ObjectHideFlags: 0

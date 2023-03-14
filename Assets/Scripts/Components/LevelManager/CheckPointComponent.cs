@@ -7,15 +7,17 @@ using UnityEngine.Events;
 public class CheckPointComponent : MonoBehaviour
 {
     [SerializeField] private string _id;
+    [SerializeField] private SpawnComponent _heroSpawner;
     [SerializeField] UnityEvent _setChecked;
     [SerializeField] UnityEvent _setUnchecked;
 
     private GameSession _session;
-    private SpawnComponent _heroSpawner;
+
+    public string Id => _id;
 
     private void Start() //На Awake GameSession будет еще не проинициализирована
     {
-        _heroSpawner = GetComponent<SpawnComponent>();
+        //_heroSpawner = GetComponent<SpawnComponent>(); сессия инициализируется на Awake и может дернуть Spawn()
         _session = FindObjectOfType<GameSession>();
         if (_session.IsChecked(_id)) 
             _setChecked?.Invoke();
@@ -26,6 +28,7 @@ public class CheckPointComponent : MonoBehaviour
     public void Check()
     {
         _session.SetChecked(_id);
+        _setChecked?.Invoke();
     }
 
     public void SpawnHero()
