@@ -12,10 +12,13 @@ public class QuickInventoryController : MonoBehaviour
     //private InventoryItemData[] _inventory;
     private List<InventoryItemWidget> _createdItems = new List<InventoryItemWidget>();
 
+    private DataGroup<InventoryItemData, InventoryItemWidget> _dataGroup;
+
     private readonly CompositeDisposable _trash = new CompositeDisposable();
 
     private void Start()
     {
+        _dataGroup = new DataGroup<InventoryItemData, InventoryItemWidget>(_prefab, _container);
         _session = FindObjectOfType<GameSession>();
 
         Rebuild();
@@ -24,8 +27,9 @@ public class QuickInventoryController : MonoBehaviour
     private void Rebuild()
     {
         var inventory = _session.QuickInventory.Inventory;
+        _dataGroup.SetData(inventory);
         _trash.Retain(_session.QuickInventory.Subscribe(Rebuild));
-
+        /*
         //create required items
         for (int i = _createdItems.Count; i < inventory.Length; i++)
         {
@@ -45,6 +49,7 @@ public class QuickInventoryController : MonoBehaviour
         {
             _createdItems[i].gameObject.SetActive(false);
         }
+        */
     }
 
     private void OnDestroy()

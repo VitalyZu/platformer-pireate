@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryItemWidget : MonoBehaviour
+public class InventoryItemWidget : MonoBehaviour, IItemRenderer<InventoryItemData>
 {
     [SerializeField] private Image _icon;
     [SerializeField] private GameObject _selected;
