@@ -6,11 +6,13 @@ using UnityEngine;
 public class DefsFacade : ScriptableObject
 {
     [SerializeField] private ItemsRepository _items;
-    [SerializeField] private ThrowableItemsDef _throwableItems;
+    [SerializeField] private ThrowableRepository _throwableItems;
+    [SerializeField] private PerkRepository _perks;
     [SerializeField] private PlayerDef _player;
 
     public ItemsRepository Items => _items;
-    public ThrowableItemsDef Throwable => _throwableItems;
+    public ThrowableRepository Throwable => _throwableItems;
+    public PerkRepository Perks => _perks;
     public PlayerDef Player => _player;
 
     private static DefsFacade _instance;

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eae23b9c888d4a459665b4614b4378f, type: 3}
   m_Name: ThrowableItemsDef
   m_EditorClassIdentifier: 
-  _items:
+  _collection:
   - _id: Sword
     _projectile: {fileID: 6156151577133145787, guid: 90590364487cf914ca49436c656c926f,
       type: 3}
-  - _id: Pearl_projectile
-    _projectile: {fileID: 1298295823836606826, guid: a771e1f341a4e384194b5408cbbe0516,
+  - _id: Perl
+    _projectile: {fileID: 1298295823836606826, guid: 7c06e2d52ed52804e8887817d4b7f211,
       type: 3}

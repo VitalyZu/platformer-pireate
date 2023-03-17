@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 
 [CreateAssetMenu(menuName = "Defs/ThrowableItemsDef", fileName = "ThrowableItemsDef")]
-public class ThrowableItemsDef : DefRepository<ThrowableDef>
+public class ThrowableRepository : DefRepository<ThrowableDef>
 {
 }
 

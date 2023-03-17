@@ -2118,18 +2118,16 @@ MonoBehaviour:
   _playerData:
     _inventory:
       _inventory:
-      - Id: Coin
-        Value: 2
       - Id: Sword
-        Value: 0
-      - Id: Key
-        Value: 4
-      - Id: Health_potion
-        Value: 4
-      - Id: Pearl_projectile
+        Value: 2
+      - Id: Coin
         Value: 10
+      - Id: Perl
+        Value: 4
     HP:
       _value: 5
+    Perks:
+      _unlocked: []
   _defaultCheckPoint: level1-checkpoint1
 --- !u!4 &349975113
 Transform:

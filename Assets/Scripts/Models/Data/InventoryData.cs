@@ -11,6 +11,28 @@ public class InventoryData
 
     public delegate void OnInventoryChanged(string id, int value);
     public OnInventoryChanged OnChange;
+
+    public bool IsEnough(params ItemWithCount[] items)
+    {
+        var joined = new Dictionary<string, int>();
+
+        foreach (var item in items)
+        {
+            if (joined.ContainsKey(item.ItemId))
+                joined[item.ItemId] += item.Count;
+            else
+                joined.Add(item.ItemId, item.Count);
+        }
+
+        foreach (var item in joined)
+        {
+            var count = Count(item.Key);
+            if (count < item.Value)
+                return false;
+        }
+        return true;
+    }
+
     //public Action<string, int> OnChange;
     public void AddItem(string id, int value)
     {

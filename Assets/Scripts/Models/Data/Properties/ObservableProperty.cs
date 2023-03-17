@@ -27,8 +27,8 @@ public class ObservableProperty<TPropertyType>
     {
         get => _value;
         set {
-            var isEqual = _value.Equals(value);
-            if (isEqual) return;
+            var isSame = _value?.Equals(value) ?? false;
+            if (isSame) return;
             var oldValue = _value;
             _value = value;
             InvokeChangedEvent(_value, oldValue);

@@ -12,6 +12,7 @@ public class PlayerData
     [Space(30)]
 
     public IntProperty HP = new IntProperty();
+    public PerksData Perks = new PerksData();
 
     //public object Clone()
     //{

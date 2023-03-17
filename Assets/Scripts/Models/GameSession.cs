@@ -21,6 +21,7 @@ public class GameSession : MonoBehaviour
     }
 
     public QuickInventoryModel QuickInventory { get; private set; }
+    public PerksModel PerksModel { get; private set; }
 
     private void Awake()
     {
@@ -64,6 +65,7 @@ public class GameSession : MonoBehaviour
     private void InitModels()
     { 
         QuickInventory = new QuickInventoryModel(Data);
+        PerksModel = new PerksModel(Data);
         _trash.Retain(QuickInventory);
     }
 

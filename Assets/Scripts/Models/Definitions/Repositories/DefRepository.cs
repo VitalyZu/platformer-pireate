@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class DefRepository<TDefType> : ScriptableObject where TDefType : IHaveId
 {
@@ -14,4 +15,7 @@ public class DefRepository<TDefType> : ScriptableObject where TDefType : IHaveId
         }
         return default;
     }
+
+    public TDefType[] All => new List<TDefType>(_collection).ToArray();
+
 }
