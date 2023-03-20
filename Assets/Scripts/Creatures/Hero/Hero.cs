@@ -124,7 +124,7 @@ public class Hero : Creature, ICanAddInInventory
 
     protected override float CalculateJumpVelocity(float velocity)
     {
-        if (!IsGrounded && _allowDoubleJump)
+        if (!IsGrounded && _allowDoubleJump && _gameSession.PerksModel.IsDoubleJumpSupported)
         {
             velocity = _jumpSpeed;
             _allowDoubleJump = false;

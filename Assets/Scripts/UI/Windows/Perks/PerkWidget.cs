@@ -23,7 +23,7 @@ public class PerkWidget : MonoBehaviour, IItemRenderer<PerkDef>
     public void SetData(PerkDef data, int index)
     {
         _data = data;
-
+        _session = FindObjectOfType<GameSession>();
         if (_session != null)
             UpdateView();
     }

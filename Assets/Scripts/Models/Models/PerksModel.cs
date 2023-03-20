@@ -13,6 +13,8 @@ public class PerksModel : IDisposable
     public event Action OnChanged;
     private readonly CompositeDisposable _trash = new CompositeDisposable();
 
+    public bool IsDoubleJumpSupported => _data.Perks.Used.Value == "double-jump";
+
     public PerksModel(PlayerData data)
     {
         _data = data;
@@ -39,6 +41,7 @@ public class PerksModel : IDisposable
             _data.Perks.AddPerk(id);
         }
         OnChanged?.Invoke();
+
     }
 
     public void UsePerk(string selectedPerk)
