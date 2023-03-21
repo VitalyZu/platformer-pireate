@@ -20,7 +20,7 @@ public class StatWidget : MonoBehaviour, IItemRenderer<StatDef>
     private void Start()
     {
         _session = FindObjectOfType<GameSession>();
-        UpdateView();
+        //UpdateView();
     }
 
     private void UpdateView()
@@ -46,7 +46,7 @@ public class StatWidget : MonoBehaviour, IItemRenderer<StatDef>
     public void SetData(StatDef data, int index)
     {
         _data = data;
-
+        _session = FindObjectOfType<GameSession>();
         if (_session != null)
             UpdateView();
 

@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 
 [Serializable]
-public class LevelData : MonoBehaviour
+public class LevelData
 {
     [SerializeField] private List<LevelProgress> _progress;
 

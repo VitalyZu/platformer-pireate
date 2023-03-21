@@ -57,9 +57,11 @@ public class StatsModel : IDisposable
         var def = DefsFacade.I.Player.GetStat(id);
         return def.Levels[level];
     }
-    public int GetCurrentLevel(StatId id) => _data.Levels.GetLevel(id);
-    
-
+    //public int GetCurrentLevel(StatId id) => _data.Levels.GetLevel(id);
+    public int GetCurrentLevel(StatId id)
+    {
+        return _data.Levels.GetLevel(id);
+    }
 
     public void Dispose()
     {
