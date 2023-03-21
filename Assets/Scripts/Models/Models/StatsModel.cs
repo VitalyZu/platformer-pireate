@@ -6,6 +6,8 @@ using System.Linq;
 
 public class StatsModel : IDisposable
 {
+    public readonly ObservableProperty<StatId> InterfaceSelection = new ObservableProperty<StatId>();
+
     private PlayerData _data;
 
     public event Action OnChanged;
@@ -14,18 +16,20 @@ public class StatsModel : IDisposable
     public IDisposable Subscribe(Action call)
     {
         OnChanged += call;
-        return new ActionDisposable(() => OnChanged -= call);
+        return new ActionDisposable( () => OnChanged -= call );
     }
     
     public StatsModel(PlayerData data)
     {
         _data = data;
+        //InterfaceSelection.Value = DefsFacade.I.Player.Stats[0].Id;
+        _trash.Retain(InterfaceSelection.Subscribe( (_, __) => OnChanged?.Invoke() ));
     }
 
     public void LevelUp(StatId id)
     {
         var def = DefsFacade.I.Player.GetStat(id);
-        var nextLevel = GetLevel(id) + 1;
+        var nextLevel = GetCurrentLevel(id) + 1;
 
         if (def.Levels.Length <= nextLevel) return;
 
@@ -39,15 +43,24 @@ public class StatsModel : IDisposable
         OnChanged?.Invoke();
     }
 
-    public float GetValue(StatId id)
+    public float GetValue(StatId id, int level = -1)
     {
-        var def = DefsFacade.I.Player.GetStat(id);
-        var level = def.Levels[GetLevel(id)];
-        return level.Value;
+        //var def = DefsFacade.I.Player.GetStat(id);
+        //var level = def.Levels[GetLevel(id)];
+        //return level.Value;
+        return GetLevelDef(id, level).Value;
     }
+    public StatLevel GetLevelDef(StatId id, int level = -1)
+    {
+        if (level == -1) level = GetCurrentLevel(id);
 
-    public int GetLevel(StatId id) => _data.Levels.GetLevel(id);
+        var def = DefsFacade.I.Player.GetStat(id);
+        return def.Levels[level];
+    }
+    public int GetCurrentLevel(StatId id) => _data.Levels.GetLevel(id);
     
+
+
     public void Dispose()
     {
         _trash.Dispose();
