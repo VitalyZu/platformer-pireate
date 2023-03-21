@@ -8,8 +8,11 @@ public class HudController : MonoBehaviour
     [SerializeField] ProgressBarWidget _bar;
 
     private GameSession _gameSession;
+    private ShowWindowComponent _windowComponent;
     private void Start()
     {
+        _windowComponent = GetComponent<ShowWindowComponent>();
+
         _gameSession = FindObjectOfType<GameSession>();
 
         _gameSession.Data.HP.onChanged += OnHealthChanged;
@@ -26,5 +29,10 @@ public class HudController : MonoBehaviour
     private void OnDestroy()
     {
         _gameSession.Data.HP.onChanged -= OnHealthChanged;
+    }
+
+    public void OnDebug()
+    {
+        _windowComponent.Show("UI/PlayerStatsWindow");
     }
 }

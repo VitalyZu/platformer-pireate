@@ -14,12 +14,13 @@ public struct StatDef
     public StatId Id => _id;
     public string Name => _name;
     public Sprite Icon => _icon;
+    public StatLevel[] Levels => _levels;
 }
 
 [Serializable]
 public struct StatLevel
 {
-    [SerializeField] private float _value;
+    [SerializeField] private float _value; // значение текущего параметра-стата
     [SerializeField] private ItemWithCount _price;
 
     public float Value => _value;

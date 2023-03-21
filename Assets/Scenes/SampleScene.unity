@@ -2128,6 +2128,7 @@ MonoBehaviour:
       _value: 5
     Perks:
       _unlocked: []
+    Levels: {fileID: 0}
   _defaultCheckPoint: level1-checkpoint1
 --- !u!4 &349975113
 Transform:

@@ -10,4 +10,9 @@ public class ShowWindowComponent : MonoBehaviour
     {
         WindowUtils.CreateWindow(_path);
     }
+
+    public void Show(string path)
+    {
+        WindowUtils.CreateWindow(path);
+    }
 }

@@ -13,3 +13,64 @@ MonoBehaviour:
   m_Name: PlayerDef
   m_EditorClassIdentifier: 
   _maxHealth: 10
+  _stats:
+  - _id: 0
+    _name: Health
+    _icon: {fileID: 21300000, guid: aa99f3af1f9add84eb77dd7b6a78163d, type: 3}
+    _levels:
+    - _value: 5
+      _price:
+        _itemId: Coin
+        _count: 0
+    - _value: 10
+      _price:
+        _itemId: Coin
+        _count: 2
+    - _value: 15
+      _price:
+        _itemId: Coin
+        _count: 3
+    - _value: 20
+      _price:
+        _itemId: Coin
+        _count: 4
+  - _id: 1
+    _name: Speed
+    _icon: {fileID: 21300000, guid: c4a4a9cd1c56f8348a34fdd16872871c, type: 3}
+    _levels:
+    - _value: 5
+      _price:
+        _itemId: Sword
+        _count: 0
+    - _value: 7
+      _price:
+        _itemId: Coin
+        _count: 1
+    - _value: 9
+      _price:
+        _itemId: Coin
+        _count: 1
+    - _value: 10
+      _price:
+        _itemId: Coin
+        _count: 1
+  - _id: 2
+    _name: Range damage
+    _icon: {fileID: 21300000, guid: 28abd0e6a3321204299478828ae40045, type: 3}
+    _levels:
+    - _value: 1
+      _price:
+        _itemId: 
+        _count: 0
+    - _value: 2
+      _price:
+        _itemId: Coin
+        _count: 1
+    - _value: 3
+      _price:
+        _itemId: Coin
+        _count: 1
+    - _value: 4
+      _price:
+        _itemId: Coin
+        _count: 1
