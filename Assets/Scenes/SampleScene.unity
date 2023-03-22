@@ -2121,7 +2121,7 @@ MonoBehaviour:
       - Id: Sword
         Value: 2
       - Id: Coin
-        Value: 10
+        Value: 100
       - Id: Perl
         Value: 4
     HP:

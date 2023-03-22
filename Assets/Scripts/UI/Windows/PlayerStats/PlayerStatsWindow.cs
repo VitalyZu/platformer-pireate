@@ -43,9 +43,14 @@ public class PlayerStatsWindow : AnimatedWindow
         _dataGroup.SetData(stats);
 
         var selected = _session.StatsModel.InterfaceSelection.Value;
+        var nextLevel = _session.StatsModel.GetCurrentLevel(selected) + 1;
+        //var nextLevelDef = _session.StatsModel.GetLevelDef(selected, nextLevel);
         //var stat = DefsFacade.I.Player.GetStat(selected);
-        var def = _session.StatsModel.GetLevelDef(selected);
+        var def = _session.StatsModel.GetLevelDef(selected, nextLevel);
         _price.SetData(def.Price);
+
+        _price.gameObject.SetActive(def.Price.Count != 0);
+        _upgradeButton.gameObject.SetActive(def.Price.Count != 0);
     }
 
     private void OnDestroy()

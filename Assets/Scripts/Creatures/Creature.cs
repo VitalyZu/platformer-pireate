@@ -50,7 +50,7 @@ public class Creature : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        float xVelocity = Direction.x * _speed;
+        float xVelocity = Direction.x * CalculateSpeed();
         float yVelocity = CalculateYVelocity();
 
         Rigidbody.velocity = new Vector2(xVelocity, yVelocity);
@@ -66,6 +66,11 @@ public class Creature : MonoBehaviour
         Animator.SetBool(isRunningKey, Direction.x != 0);
 
         SetSpriteDirection(Direction);
+    }
+
+    protected virtual float CalculateSpeed()
+    {
+        return _speed;
     }
 
     public void SetDirection(Vector2 direction)

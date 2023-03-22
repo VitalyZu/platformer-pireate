@@ -89,6 +89,22 @@ public class Hero : Creature, ICanAddInInventory
         if (_swordsValue != 0) _swordsValue++;
         _gameSession.Data.Inventory.OnChange += OnInventoryChange;
         camBody = _cinemachineCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+
+        _gameSession.StatsModel.OnUpgraded += OnHeroUpgraded;
+    }
+
+    private void OnHeroUpgraded(StatId id)
+    {
+        switch (id)
+        {
+            case StatId.HP:
+                var health = (int)_gameSession.StatsModel.GetValue(id);
+                _gameSession.Data.HP.Value = health;
+                _healthComponent.SetHealth(health);
+                break;
+            default:
+                break;
+        }
     }
 
     private void OnDestroy()
@@ -108,6 +124,12 @@ public class Hero : Creature, ICanAddInInventory
         }
 
         base.FixedUpdate();
+    }
+
+    protected override float CalculateSpeed()
+    {
+        var defaultSpeed = _gameSession.StatsModel.GetValue(StatId.Speed);
+        return defaultSpeed;
     }
 
     protected override float CalculateYVelocity()
@@ -268,7 +290,7 @@ public class Hero : Creature, ICanAddInInventory
 
     public void Heal()
     {
-        if (HealthPotionCount > 0 && _gameSession.Data.HP.Value < DefsFacade.I.Player.MaxHealth)
+        if (HealthPotionCount > 0 && _gameSession.Data.HP.Value < _gameSession.StatsModel.GetValue(StatId.HP))
         {
             _gameSession.Data.Inventory.RemoveItem("Health_potion", 1);
             _healthComponent.DealHealth(1);

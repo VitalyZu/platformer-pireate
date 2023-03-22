@@ -34,10 +34,10 @@ public class StatWidget : MonoBehaviour, IItemRenderer<StatDef>
         var currentLevel = StatModel.GetCurrentLevel(_data.Id);
         var nextLevel = currentLevel + 1;
         var increaseValue = StatModel.GetValue(_data.Id, nextLevel);
-        _increaseValue.text = increaseValue.ToString(CultureInfo.InvariantCulture);
+        _increaseValue.text = $"+{increaseValue.ToString(CultureInfo.InvariantCulture)}";
         _increaseValue.gameObject.SetActive(increaseValue > 0);
 
-        var maxLevels = DefsFacade.I.Player.GetStat(_data.Id).Levels.Length;
+        var maxLevels = DefsFacade.I.Player.GetStat(_data.Id).Levels.Length - 1;
         _progress.SetProgress(currentLevel / (float)maxLevels);
 
         _selector.SetActive(StatModel.InterfaceSelection.Value == _data.Id);
@@ -49,8 +49,6 @@ public class StatWidget : MonoBehaviour, IItemRenderer<StatDef>
         _session = FindObjectOfType<GameSession>();
         if (_session != null)
             UpdateView();
-
-
     }
 
     public void OnSelect()

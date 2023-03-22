@@ -23,7 +23,7 @@ public class PerkDef : IHaveId
     public ItemWithCount Price => _price;
 }
 [Serializable]
-public class ItemWithCount
+public struct ItemWithCount
 {
     [InventoryId] [SerializeField] private string _itemId;
     [SerializeField] int _count;

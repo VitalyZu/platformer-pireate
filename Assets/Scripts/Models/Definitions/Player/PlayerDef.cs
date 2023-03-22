@@ -9,7 +9,6 @@ public class PlayerDef : ScriptableObject
     [SerializeField] private int _maxHealth;
     [SerializeField] private StatDef[] _stats;
 
-    public int MaxHealth => _maxHealth;
     public StatDef[] Stats => _stats;
 
     public StatDef GetStat(StatId id) => _stats.FirstOrDefault<StatDef>(x => x.Id == id);   //LINQ

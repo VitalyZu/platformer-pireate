@@ -69,6 +69,8 @@ public class GameSession : MonoBehaviour
         PerksModel = new PerksModel(Data);
         StatsModel = new StatsModel(Data);
         _trash.Retain(QuickInventory);
+
+        _playerData.HP.Value = (int)StatsModel.GetValue(StatId.HP);
     }
 
     private void LoadHUD()

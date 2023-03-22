@@ -11,6 +11,7 @@ public class StatsModel : IDisposable
     private PlayerData _data;
 
     public event Action OnChanged;
+    public event Action<StatId> OnUpgraded;
     private readonly CompositeDisposable _trash = new CompositeDisposable();
     
     public IDisposable Subscribe(Action call)
@@ -41,6 +42,7 @@ public class StatsModel : IDisposable
         _data.Levels.LevelUp(id);
 
         OnChanged?.Invoke();
+        OnUpgraded?.Invoke(id);
     }
 
     public float GetValue(StatId id, int level = -1)
@@ -50,12 +52,14 @@ public class StatsModel : IDisposable
         //return level.Value;
         return GetLevelDef(id, level).Value;
     }
-    public StatLevel GetLevelDef(StatId id, int level = -1)
+    public StatLevelDef GetLevelDef(StatId id, int level = -1)
     {
         if (level == -1) level = GetCurrentLevel(id);
 
         var def = DefsFacade.I.Player.GetStat(id);
-        return def.Levels[level];
+        if(def.Levels.Length > level)
+            return def.Levels[level];
+        return default;
     }
     //public int GetCurrentLevel(StatId id) => _data.Levels.GetLevel(id);
     public int GetCurrentLevel(StatId id)

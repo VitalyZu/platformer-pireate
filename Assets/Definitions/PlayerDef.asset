@@ -40,7 +40,7 @@ MonoBehaviour:
     _levels:
     - _value: 5
       _price:
-        _itemId: Sword
+        _itemId: Coin
         _count: 0
     - _value: 7
       _price:
@@ -60,7 +60,7 @@ MonoBehaviour:
     _levels:
     - _value: 1
       _price:
-        _itemId: 
+        _itemId: Coin
         _count: 0
     - _value: 2
       _price:

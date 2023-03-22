@@ -9,16 +9,16 @@ public struct StatDef
     [SerializeField] private StatId _id;
     [SerializeField] private string _name;
     [SerializeField] private Sprite _icon;
-    [SerializeField] StatLevel[] _levels;
+    [SerializeField] StatLevelDef[] _levels;
 
     public StatId Id => _id;
     public string Name => _name;
     public Sprite Icon => _icon;
-    public StatLevel[] Levels => _levels;
+    public StatLevelDef[] Levels => _levels;
 }
 
 [Serializable]
-public struct StatLevel
+public struct StatLevelDef
 {
     [SerializeField] private float _value; // значение текущего параметра-стата
     [SerializeField] private ItemWithCount _price;
