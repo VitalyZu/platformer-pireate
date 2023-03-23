@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6856,24 +6856,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7605992641768713708}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &591543295 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4851333253019881658, guid: ad4fd09eb0404bb4c98157c005b0bf20,
-    type: 3}
-  m_PrefabInstance: {fileID: 4851333252633929155}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &591543296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591543295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 055211669bbc6284aa4110d31ef77e3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &593357216
 GameObject:
   m_ObjectHideFlags: 0
@@ -21976,21 +21958,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4851333252751269576, guid: ad4fd09eb0404bb4c98157c005b0bf20,
-        type: 3}
-      propertyPath: m_XDamping
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851333252751269576, guid: ad4fd09eb0404bb4c98157c005b0bf20,
-        type: 3}
-      propertyPath: m_DeadZoneWidth
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851333252751269576, guid: ad4fd09eb0404bb4c98157c005b0bf20,
-        type: 3}
-      propertyPath: m_LookaheadSmoothing
-      value: 8.78
-      objectReference: {fileID: 0}
     - target: {fileID: 4851333253019881656, guid: ad4fd09eb0404bb4c98157c005b0bf20,
         type: 3}
       propertyPath: m_RootOrder
@@ -22046,20 +22013,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4851333253019881657, guid: ad4fd09eb0404bb4c98157c005b0bf20,
-        type: 3}
-      propertyPath: m_Follow
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4851333253019881658, guid: ad4fd09eb0404bb4c98157c005b0bf20,
         type: 3}
       propertyPath: m_Name
       value: CM vcam1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851333253019881663, guid: ad4fd09eb0404bb4c98157c005b0bf20,
-        type: 3}
-      propertyPath: m_BoundingShape2D
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad4fd09eb0404bb4c98157c005b0bf20, type: 3}

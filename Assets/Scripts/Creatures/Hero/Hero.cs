@@ -41,6 +41,7 @@ public class Hero : Creature, ICanAddInInventory
     private GameSession _gameSession;
     private HealthComponent _healthComponent;
     private PlaySoundsComponent _soundsComponent;
+    private CameraShakeEffect _cameraShake;
 
     private const string SwordId = "Sword";
     private int CoinsCount => _gameSession.Data.Inventory.Count("Coin");
@@ -80,6 +81,7 @@ public class Hero : Creature, ICanAddInInventory
     private void Start()
     {
         _cinemachineCamera = FindObjectOfType<CinemachineVirtualCamera>();
+        _cameraShake = FindObjectOfType<CameraShakeEffect>();
         _gameSession = FindObjectOfType<GameSession>();
         _healthComponent = GetComponent<HealthComponent>();
 
@@ -219,7 +221,8 @@ public class Hero : Creature, ICanAddInInventory
         if (CoinsCount > 0)
         {
             SpawnCoins();
-        }        
+        }
+        _cameraShake.Shake();
     }
 
     public void Interact()
