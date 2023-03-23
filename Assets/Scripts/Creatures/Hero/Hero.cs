@@ -222,7 +222,7 @@ public class Hero : Creature, ICanAddInInventory
         {
             SpawnCoins();
         }
-        _cameraShake.Shake();
+        _cameraShake?.Shake();
     }
 
     public void Interact()

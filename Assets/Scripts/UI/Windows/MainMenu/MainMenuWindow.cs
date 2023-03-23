@@ -27,7 +27,8 @@ public class MainMenuWindow : AnimatedWindow
     {
         _closeAction = () =>
         {
-            SceneManager.LoadScene(0);
+            LevelLoader loader = FindObjectOfType<LevelLoader>();
+            loader.LoadLevel("SampleScene");
         };
         Close();
     }
@@ -47,7 +48,7 @@ public class MainMenuWindow : AnimatedWindow
     public override void OnCloseAnimationComplete()
     {
         base.OnCloseAnimationComplete();
-
+        Debug.Log("CloseAnim Complete");
         _closeAction?.Invoke();
     }
 }

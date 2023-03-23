@@ -9,6 +9,7 @@ TagManager:
   - Interactable
   - Ground
   - SFXAudioSource
+  - MainUICanvas
   layers:
   - Default
   - TransparentFX

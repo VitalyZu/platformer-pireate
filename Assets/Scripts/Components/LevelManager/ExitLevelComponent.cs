@@ -11,6 +11,8 @@ public class ExitLevelComponent : MonoBehaviour
         GameSession session = FindObjectOfType<GameSession>();
         //session.initPlayerData = (PlayerData)session.Data.Clone();
         session.Save();
-        SceneManager.LoadScene(_sceneName);
+        //SceneManager.LoadScene(_sceneName);
+        LevelLoader loader = FindObjectOfType<LevelLoader>();
+        loader.LoadLevel(_sceneName);
     }
 }
