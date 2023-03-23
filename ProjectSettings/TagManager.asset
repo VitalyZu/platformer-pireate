@@ -61,3 +61,6 @@ TagManager:
   - name: Potions
     uniqueID: 2559150467
     locked: 0
+  - name: Overlay
+    uniqueID: 3124437205
+    locked: 0
