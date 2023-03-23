@@ -6503,7 +6503,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.24
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000770630ffd5a957ae03cdc76871e4d4df83898998
   m_LightCookieSprite: {fileID: 0}
@@ -42136,7 +42136,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 7488bc49fd42a514db7be2d153a4ed8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -43617,7 +43617,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 0}
+  sharedProfile: {fileID: 11400000, guid: be5a50ccb94c1a047879461dcaa4e8d3, type: 2}
 --- !u!4 &2005748543
 Transform:
   m_ObjectHideFlags: 0
