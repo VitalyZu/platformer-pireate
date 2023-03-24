@@ -7,7 +7,15 @@ public class SwitchComponent : MonoBehaviour
     [SerializeField] Animator _animator;
     [SerializeField] bool _state;
     [SerializeField] private string _animationKey;
+    [SerializeField] private bool _switchOnStart;
 
+    private void Start()
+    {
+        if (_switchOnStart)
+        {
+            _animator.SetBool(_animationKey, _state);
+        }    
+    }
     private void Switch()
     {
         _state = !_state;
