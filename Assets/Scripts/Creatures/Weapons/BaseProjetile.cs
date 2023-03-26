@@ -16,7 +16,7 @@ public class BaseProjetile : MonoBehaviour
         Direction = _invert ? Direction * -1 : Direction;
         Rigidbody = GetComponent<Rigidbody2D>();
         var force = new Vector2(_speed * Direction, 0);
-        Rigidbody.AddForce(force, ForceMode2D.Impulse);
+        //Rigidbody.AddForce(force, ForceMode2D.Impulse);
     }
 
     //private void FixedUpdate()

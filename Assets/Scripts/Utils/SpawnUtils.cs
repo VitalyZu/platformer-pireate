@@ -12,6 +12,6 @@ public class SpawnUtils : MonoBehaviour
         if (container == null)
             container = new GameObject(ContainerName);
 
-        return Object.Instantiate(prefab, position, Quaternion.identity, container.transform);
+        return Object.Instantiate(prefab, position, Quaternion.identity);
     }
 }
