@@ -7,12 +7,15 @@ using UnityEngine.Events;
 public class HealthComponent : MonoBehaviour
 {
     [SerializeField] private int _health;
-    [SerializeField] private UnityEvent _onDamage;
+    public UnityEvent _onDamage;
     [SerializeField] private UnityEvent _onHeal;
     [SerializeField] private UnityEvent _onDie;
     [SerializeField] public HealthChangeEvent _onChange;
+    private Lock _immune = new Lock();
 
     public int Health => _health;
+
+    public Lock Immune => _immune;
 
     private Hero _hero;
     //private SpriteAnimation _spriteAnimationComponent;
@@ -26,6 +29,7 @@ public class HealthComponent : MonoBehaviour
 
     public void DealHealth(int health)
     {
+        if (health < 0 && Immune.IsLocked) return;
         if (_health <= 0) return;
 
         if (_hero != null)

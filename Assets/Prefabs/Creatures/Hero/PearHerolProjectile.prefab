@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 5963269956333825032}
   - component: {fileID: -7659745097218873792}
   - component: {fileID: -6659764196495772544}
+  - component: {fileID: 4800180587911648256}
+  - component: {fileID: -4649903373726802621}
   m_Layer: 13
   m_Name: PearHerolProjectile
   m_TagString: Untagged
@@ -225,3 +227,41 @@ MonoBehaviour:
   _invert: 0
   _frequency: 3.38
   _amplitude: 0.05
+--- !u!114 &4800180587911648256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298295823836606826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad785dd199cc380468b9cad3a3cbc9e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 0
+  _onDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  _onHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDie:
+    m_PersistentCalls:
+      m_Calls: []
+  _onChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &-4649903373726802621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298295823836606826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 533f647898e152c48bb0f60536d0f2a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _immuneTime: 0
