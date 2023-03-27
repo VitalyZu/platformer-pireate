@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class DialogBoxController : MonoBehaviour
@@ -22,6 +23,7 @@ public class DialogBoxController : MonoBehaviour
     private int _currentSentence;
     private AudioSource _audioSource;
     private Coroutine _typingRoutine;
+    private UnityEvent _onComplete;
 
     private readonly int _isOpenKey = Animator.StringToHash("isOpen");
 
@@ -29,8 +31,9 @@ public class DialogBoxController : MonoBehaviour
     {
         _audioSource = AudioUtils.FindSfxSource();
     }
-    public void ShowDialog(DialogData data)
+    public void ShowDialog(DialogData data, UnityEvent call)
     {
+        _onComplete = call;
         _data = data;
         _currentSentence = 0;
         _text.text = string.Empty;
@@ -80,6 +83,7 @@ public class DialogBoxController : MonoBehaviour
 
     private void HideDialogBox()
     {
+        _onComplete?.Invoke();
         _animator.SetBool(_isOpenKey, false);
         _audioSource.PlayOneShot(_closeClip);
     }
@@ -105,6 +109,6 @@ public class DialogBoxController : MonoBehaviour
     [SerializeField] private DialogData _dataTest;
     public void Test()
     {
-        ShowDialog(_dataTest);
+        //ShowDialog(_dataTest);
     }
 }

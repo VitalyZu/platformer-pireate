@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 
 public class ShowDialogComponent : MonoBehaviour
 {
     [SerializeField] private Mode _mode;
     [SerializeField] private DialogData _bound;
     [SerializeField] private DialogDef _external;
+    [SerializeField] private UnityEvent _onComplete;
 
     private DialogBoxController _dialogBox;
 
@@ -15,7 +17,7 @@ public class ShowDialogComponent : MonoBehaviour
     {
         if (_dialogBox == null) _dialogBox = FindObjectOfType<DialogBoxController>();
         var data = Data;
-        _dialogBox.ShowDialog(data);
+        _dialogBox.ShowDialog(data, _onComplete);
     }
 
     public void Show(DialogDef def)
