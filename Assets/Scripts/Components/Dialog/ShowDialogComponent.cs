@@ -14,8 +14,8 @@ public class ShowDialogComponent : MonoBehaviour
     public void Show()
     {
         if (_dialogBox == null) _dialogBox = FindObjectOfType<DialogBoxController>();
-        
-        _dialogBox.ShowDialog(Data);
+        var data = Data;
+        _dialogBox.ShowDialog(data);
     }
 
     public void Show(DialogDef def)

@@ -21895,7 +21895,7 @@ PrefabInstance:
     - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
         type: 3}
       propertyPath: _required.Array.data[0].Value
-      value: 8
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 2577409438811821942, guid: e8c25491b83be9645ab77f8ef9f812e0,
         type: 3}

@@ -10,7 +10,9 @@ public class HealthComponent : MonoBehaviour
     [SerializeField] private UnityEvent _onDamage;
     [SerializeField] private UnityEvent _onHeal;
     [SerializeField] private UnityEvent _onDie;
-    [SerializeField] private HealthChangeEvent _onChange;
+    [SerializeField] public HealthChangeEvent _onChange;
+
+    public int Health => _health;
 
     private Hero _hero;
     //private SpriteAnimation _spriteAnimationComponent;
