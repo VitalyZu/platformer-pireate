@@ -307,6 +307,78 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &152502252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 152502253}
+  - component: {fileID: 152502254}
+  m_Layer: 0
+  m_Name: Candle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &152502253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152502252}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.91, y: -8.54, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1192062461}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &152502254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152502252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000770630ffd5a957ae03cdc76871e4d4df83898998d5203bba
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0.54
+  m_PointLightOuterRadius: 1.55
+  m_PointLightDistance: 3
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &287674881
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,6 +725,7 @@ GameObject:
   - component: {fileID: 495953521}
   - component: {fileID: 495953523}
   - component: {fileID: 495953522}
+  - component: {fileID: 495953524}
   m_Layer: 13
   m_Name: Patric
   m_TagString: Enemy
@@ -793,10 +866,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e62c9fc80b0ab49a7975e5fd8c0a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 5695745851358054654, guid: 1a46886e0ee68634c952f7ff8d1decfe,
-    type: 3}
-  _burstCount: 15
-  _delay: 0.05
+  _settings:
+  - _projectile: {fileID: 5695745851358054654, guid: 1a46886e0ee68634c952f7ff8d1decfe,
+      type: 3}
+    _burstCount: 3
+    _delay: 0.5
+  - _projectile: {fileID: 5695745851358054654, guid: 1a46886e0ee68634c952f7ff8d1decfe,
+      type: 3}
+    _burstCount: 15
+    _delay: 0.05
 --- !u!114 &495953522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -823,7 +901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad785dd199cc380468b9cad3a3cbc9e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 3
+  _health: 10
   _onDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -836,6 +914,21 @@ MonoBehaviour:
   _onChange:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &495953524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495953515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038078f7ce877ba4ab78f1bc51d1a385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lights:
+  - {fileID: 152502254}
+  _color: {r: 2.8392158, g: 0, b: 0, a: 0}
 --- !u!1001 &603016553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1345,7 +1438,7 @@ PrefabInstance:
     - target: {fileID: 4851333252751269576, guid: ad4fd09eb0404bb4c98157c005b0bf20,
         type: 3}
       propertyPath: m_DeadZoneWidth
-      value: 0.00000600136
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4851333252751269576, guid: ad4fd09eb0404bb4c98157c005b0bf20,
         type: 3}
@@ -1587,7 +1680,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.64
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000770630ffd5a957ae03cdc76871e4d4df83898998
   m_LightCookieSprite: {fileID: 0}
@@ -1636,10 +1729,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192062460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.507942, y: 18.041636, z: -81.17578}
+  m_LocalPosition: {x: 40.507942, y: 18.041636, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1153652578}
+  - {fileID: 152502253}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
