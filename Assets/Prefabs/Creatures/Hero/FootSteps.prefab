@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6156151577133145786}
   - component: {fileID: 6156151577133145785}
   - component: {fileID: 6156151577133145784}
-  - component: {fileID: 2693877567388458666}
+  - component: {fileID: 192369244386051243}
   m_Layer: 0
   m_Name: FootSteps
   m_TagString: Untagged
@@ -100,8 +100,8 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2693877567388458666}
-        m_MethodName: DestroySelf
+      - m_Target: {fileID: 192369244386051243}
+        m_MethodName: Release
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -125,7 +125,7 @@ MonoBehaviour:
     onAnimationComplete:
       m_PersistentCalls:
         m_Calls: []
---- !u!114 &2693877567388458666
+--- !u!114 &192369244386051243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +134,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 6156151577133145787}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f76dfc615dc67c408790d6e054273f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f5e3a94927545d4ea9eecc89b305ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameObject: {fileID: 0}
+  _onRestart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6156151577133145784}
+        m_MethodName: SetAnimationByName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: run
+          m_BoolArgument: 0
+        m_CallState: 2

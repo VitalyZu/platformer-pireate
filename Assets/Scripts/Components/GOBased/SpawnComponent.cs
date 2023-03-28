@@ -7,11 +7,15 @@ public class SpawnComponent : MonoBehaviour
 {
     [SerializeField] private Transform _target;
     [SerializeField] private GameObject _prefab;
+    [SerializeField] private bool _usePool;
 
     [ContextMenu("Spawn")]
     public void Spawn()
     {
-        GameObject instance = Instantiate(_prefab, _target.position, Quaternion.identity);
+        GameObject instance = _usePool ? 
+            Pool.Instance.Get(_prefab, _target.position) : 
+            SpawnUtils.Spawn(_prefab, _target.position);
+        
         instance.transform.localScale = _target.lossyScale;
     }
 

@@ -22036,6 +22036,9 @@ MonoBehaviour:
     - Need a key
     - Ha-ha-ha
   _external: {fileID: 0}
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1369260263825761227
 PrefabInstance:
   m_ObjectHideFlags: 0

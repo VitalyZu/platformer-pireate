@@ -78,6 +78,7 @@ public class SpriteAnimation : MonoBehaviour
                 _animationsClip[index].onAnimationComplete?.Invoke();
 
                 _onComplete?.Invoke();
+                
                 return;
             }
         }
@@ -89,6 +90,7 @@ public class SpriteAnimation : MonoBehaviour
     public void SetAnimationByName(string name)
     {
         _currentSpriteIndex = 0;
+        _nextFrameTime = Time.time + _secondsPerFrame;
         for (int i = 0; i < _animationsClip.Length; i++)
         {
             if (_animationsClip[i].name == name)
