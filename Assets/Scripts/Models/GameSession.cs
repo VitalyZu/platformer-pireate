@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using System.Diagnostics;
 
 public class GameSession : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class GameSession : MonoBehaviour
     private void StartSession(string checkPoint)
     {
         SetChecked(checkPoint);
-        LoadHUD();
+        LoadUI();
         SpawnHero();
     }
 
@@ -73,9 +74,16 @@ public class GameSession : MonoBehaviour
         _playerData.HP.Value = (int)StatsModel.GetValue(StatId.HP);
     }
 
-    private void LoadHUD()
+    private void LoadUI()
     {
         SceneManager.LoadScene("HUD", LoadSceneMode.Additive);
+        LoadOnScreenControls();
+    }
+
+    [Conditional("USE_ONSCREEN_CONTROLS")]
+    private void LoadOnScreenControls()
+    {
+        SceneManager.LoadScene("Controls", LoadSceneMode.Additive);
     }
 
     public void Save()

@@ -10,7 +10,7 @@
                     "type": "Value",
                     "id": "4ed4c364-363b-41fe-8839-0e2f1453ef72",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "NormalizeVector2",
                     "interactions": ""
                 },
                 {
@@ -175,6 +175,17 @@
                 },
                 {
                     "name": "",
+                    "id": "864e653b-13f5-4294-be3f-ed4e5eb1c501",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "NormalizeVector2",
+                    "groups": "",
+                    "action": "HorizontalMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f58a7504-fb35-4c2c-8321-123222b47307",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -208,8 +219,30 @@
                 },
                 {
                     "name": "",
+                    "id": "02d85b9f-f591-4589-95f3-d7b3ea3db58b",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "3d3177f6-e809-45b1-915e-9d20845e5542",
                     "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e9dd364-3c00-49a2-a65a-a09ba9d00b33",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

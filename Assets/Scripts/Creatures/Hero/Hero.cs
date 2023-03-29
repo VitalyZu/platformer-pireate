@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Animations;
 using Cinemachine;
 using System;
 
@@ -13,8 +12,8 @@ public class Hero : Creature, ICanAddInInventory
     [SerializeField] private float _slamDownVelocity;
     [Space]
     [Header("Animator controllers")]
-    [SerializeField] private AnimatorController _armedAnimatorController;
-    [SerializeField] private AnimatorController _unarmedAnimatorController;
+    [SerializeField] private RuntimeAnimatorController _armedAnimatorController;
+    [SerializeField] private RuntimeAnimatorController _unarmedAnimatorController;
     [Space]
     [Header("Hero interact")]
     [SerializeField] private CheckCircleOverlap _interactionCheck;
