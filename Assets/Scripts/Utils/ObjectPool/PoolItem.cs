@@ -23,8 +23,4 @@ public class PoolItem : MonoBehaviour
     {
         _onRestart?.Invoke();
     }
-    public void Test()
-    {
-        Debug.Log("END");
-    }
 }
